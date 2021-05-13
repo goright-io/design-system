@@ -1,4 +1,5 @@
 const StyleDictionary = require("style-dictionary");
+const _ = require("lodash");
 
 StyleDictionary.registerTransform({
   name: "size/px", // notice: the name is an override of an existing predefined method
@@ -17,40 +18,81 @@ StyleDictionary.registerTransform({
   },
 });
 
+const isTypographyToken = (prop) => {
+  return (
+    [
+      "fontSize",
+      "textDecoration",
+      "fontFamily",
+      "fontWeight",
+      "fontStyle",
+      "fontStretch",
+      "fontStyleOld",
+      "letterSpacing",
+      "lineHeight",
+      "paragraphIndent",
+      "paragraphSpacing",
+      "textCase",
+    ].indexOf(prop.path[1]) !== -1
+  );
+};
+
+StyleDictionary.registerTransform({
+  name: "textTokens", // notice: the name is an override of an existing predefined method
+  type: "value",
+  matcher: isTypographyToken,
+  transformer: function (prop) {
+    return `${prop.value}px`;
+  },
+});
+
+StyleDictionary.registerFormat({
+  name: "nestedTypography",
+  formatter: function (dictionary) {
+    const textTokens = {
+      fontSize: {},
+      textDecoration: {},
+      fontFamily: {},
+      fontWeight: {},
+      fontStyle: {},
+      fontStretch: {},
+      letterSpacing: {},
+      lineHeight: {},
+      paragraphIndent: {},
+      paragraphSpacing: {},
+      textCase: {},
+    };
+    // dictionary.properties.map((token) =>
+    for (const propname in dictionary.properties) {
+      const nameWithoutPrefix = _.camelCase(
+        propname.startsWith("text-") ? propname.substring(5) : propname
+      );
+
+      const propDict = dictionary.properties[propname];
+      for (const prop in propDict) {
+        textTokens[prop][nameWithoutPrefix] = propDict[prop].value;
+      }
+
+      // textTokens[nameWithoutPrefix] = Object.keys(propDict).reduce(
+      //   (res, key) => Object.assign(res, { [key]: propDict[key].value }),
+      //   {}
+      // );
+    }
+    return JSON.stringify(textTokens, null, 2);
+  },
+});
+
 /* Basic filter to separate typography tokens. It might need tweaking depending on the token data shape */
 StyleDictionary.registerFilter({
   name: "isTypography",
-  matcher: function (prop) {
-    return (
-      [
-        'fontSize',
-        'textDecoration',
-        'fontFamily',
-        'fontWeight',
-        'fontStyle',
-        'fontStretch',
-        'fontStyleOld',
-        'letterSpacing',
-        'lineHeight',
-        'paragraphIndent',
-        'paragraphSpacing',
-        'textCase'
-      ].indexOf(prop.path[1]) !== -1
-    )
-    /* return (
-      prop.name.startsWith("headline") || prop.name.startsWith("paragraph")
-    );
-    */
-  },
+  matcher: isTypographyToken,
 });
 
 /* Basic filter to separate spacing tokens. */
 StyleDictionary.registerFilter({
   name: "isSpacing",
   matcher: function (prop) {
-    return (
-      prop.path[0] === "spacing"
-    );
+    return prop.path[0] === "spacing";
   },
 });
 
@@ -65,23 +107,18 @@ module.exports = {
       files: [
         /* Filter and extract typography tokens */
         {
-          destination: "typography.js",
-          format: "javascript/es6",
+          destination: "typography.json",
+          format: "nestedTypography",
           filter: "isTypography",
         },
         /* Filter and extract color tokens*/
         {
-          destination: "colors.js",
-          format: "javascript/es6",
+          destination: "colors.json",
+          format: "json/nested",
+
           filter: {
             type: "color",
           },
-        },
-        /* Filter and extract spacing tokens*/
-        {
-          destination: "spacing.js",
-          format: "javascript/es6",
-          filter: "isSpacing",
         },
       ],
     },
