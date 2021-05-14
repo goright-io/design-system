@@ -1,5 +1,6 @@
 import React from "react";
 import GlobalStyle, { fontUrl } from "../src/global";
+import "../src/global.css";
 
 const withGlobalStyle = (storyFn) => (
   <>

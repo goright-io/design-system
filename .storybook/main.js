@@ -1,7 +1,6 @@
 const path = require("path");
 const pathToInlineSvg = path.resolve(__dirname, "../src/components/Icon/svg");
 const webpack = require("webpack");
-import "../src/global.css";
 
 const tokensFileName = "design-tokens.json";
 const tokensPath = "./src/tokens/";
@@ -53,6 +52,20 @@ module.exports = {
         },
         "file-loader",
       ],
+    });
+
+    // fonts
+    config.module.rules.push({
+      test: /\.(woff|woff2|eot|ttf)$/,
+      use: [
+        {
+          loader: "file-loader",
+          query: {
+            name: "[name].[ext]",
+          },
+        },
+      ],
+      include: path.resolve(__dirname, "../"),
     });
 
     /*
