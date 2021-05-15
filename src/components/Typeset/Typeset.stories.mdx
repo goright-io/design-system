@@ -2,19 +2,17 @@
 import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
 
 import Typeset from ".";
-console.log("🚀 ~ file: Typeset.stories.mdx ~ line 5 ~ Typeset", Typeset);
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../../tailwind.config";
+import theme from "../../utils//getTheme"
 
-export const fontSize = resolveConfig(tailwindConfig).theme.fontSize;
-export const fontWeight = resolveConfig(tailwindConfig).theme.fontWeight;
+export const fontSize = theme.fontSize;
+export const fontWeight = theme.fontWeight;
 
 
 <Meta title="Components/Typeset" />
 
 ## Typeset
 
-Custom extended Typeset compoent
+Custom extended Typeset compoents
 
 <Preview>
     <Typeset fontSize="14px" variants= {{"fontSize": fontSize}}/>

@@ -1,12 +1,10 @@
 import { Meta,  Story, Canvas } from "@storybook/addon-docs/blocks";
 import Typeset from "./components/Typeset"
-import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../tailwind.config";
-
-export const fontSize = resolveConfig(tailwindConfig).theme.fontSize;
-export const fontWeight = resolveConfig(tailwindConfig).theme.fontWeight;
-export const fontFamily = resolveConfig(tailwindConfig).theme.fontFamily;
-export const letterSpacing = resolveConfig(tailwindConfig).theme.letterSpacing;
+import theme from "./utils/getTheme"
+export const fontSize = theme.fontSize;
+export const fontWeight = theme.fontWeight;
+export const fontFamily = theme.fontFamily;
+export const letterSpacing = theme.letterSpacing;
 
 export const defaultStyle = {
   sampleText: "Design systems are awesome",

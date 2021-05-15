@@ -1,9 +1,8 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
-import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from '../tailwind.config';
+import theme from "./utils/getTheme"
 
-export const colors = resolveConfig(tailwindConfig).theme.colors
+export const colors = theme.colors
 
 
 <Meta title="Color Palette" />
