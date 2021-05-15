@@ -9,6 +9,14 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: "lineHeight/percentToEm",
+  type: "value",
+  matcher: (prop) => prop.path.includes("letterSpacing"),
+  transformer: (prop) =>
+    (parseInt(prop.original.value) / 100).toString() + "em",
+});
+
+StyleDictionary.registerTransform({
   name: "size/px", // notice: the name is an override of an existing predefined method
   type: "value",
   matcher: function (prop) {
@@ -130,7 +138,12 @@ module.exports = {
     js: {
       transformGroup: "js",
       buildPath: "./src/tokens/dist/",
-      transforms: ["size/px", "size/percent", "name/cti/camel"], // HACK: for a reason, name/cti/camel transform doesn't affect the result, but prevents from token collision warning in console
+      transforms: [
+        "size/px",
+        "size/percent",
+        "name/cti/camel",
+        "lineHeight/percentToEm",
+      ], // HACK: for a reason, name/cti/camel transform doesn't affect the result, but prevents from token collision warning in console
       /* We split tokens into separate files - it will be easier to use them this way */
       files: [
         /* Filter and extract typography tokens */
