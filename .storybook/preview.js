@@ -1,5 +1,4 @@
 import React from "react";
-import GlobalStyle, { fontUrl } from "../src/global";
 import "../src/global.css";
 
 const withGlobalStyle = (storyFn) => (
@@ -24,19 +23,3 @@ export const parameters = {
     },
   },
 };
-
-// Load the font and avoid re-loading it when components change
-const fontLinkId = "storybook-font-link-tag";
-
-const loadFontsForStorybook = () => {
-  if (!document.getElementById(fontLinkId)) {
-    const fontLink = document.createElement("link");
-
-    fontLink.id = fontLinkId;
-    fontLink.href = fontUrl;
-    fontLink.rel = "stylesheet";
-
-    document.head.appendChild(fontLink);
-  }
-};
-loadFontsForStorybook();

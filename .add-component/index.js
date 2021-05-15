@@ -49,7 +49,6 @@ fs.readFile("./src/index.js", "utf8", function (err, data) {
  * Don't edit it directly, your chages will be overwritten.
  */
 import "./global.css"
-export { default as GlobalStyle } from "./global.js";
 export { colors, typography, spacing } from "./tokens";\n\n`;
 
   // create the import and export statements
