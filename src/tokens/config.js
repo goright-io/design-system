@@ -2,6 +2,13 @@ const StyleDictionary = require("style-dictionary");
 const _ = require("lodash");
 
 StyleDictionary.registerTransform({
+  name: "size/percent",
+  type: "value",
+  matcher: (prop) => prop.unit === "percent" && !isNaN(prop.value),
+  transformer: (prop) => prop.value + "%",
+});
+
+StyleDictionary.registerTransform({
   name: "size/px", // notice: the name is an override of an existing predefined method
   type: "value",
   matcher: function (prop) {
@@ -38,16 +45,56 @@ const isTypographyToken = (prop) => {
 };
 
 StyleDictionary.registerTransform({
-  name: "textTokens", // notice: the name is an override of an existing predefined method
-  type: "value",
+  name: "name/kebab", // notice: the name is an override of an existing predefined method
+  type: "name",
+  transformer: (prop, options) =>
+    _.kebabCase([options.prefix].concat(prop.path).join(" ")),
+});
+
+/* Basic filter to separate typography tokens. It might need tweaking depending on the token data shape */
+StyleDictionary.registerFilter({
+  name: "isTypography",
   matcher: isTypographyToken,
-  transformer: function (prop) {
-    return `${prop.value}px`;
+});
+
+/* Basic filter to separate spacing tokens. */
+StyleDictionary.registerFilter({
+  name: "isSpacing",
+  matcher: function (prop) {
+    return prop.path[0] === "spacing";
+  },
+});
+
+// modified from https://github.com/amzn/style-dictionary/blob/a88e622bcc06a98972dddb2b11903828ba3dab2b/lib/common/formats.js#L73
+// extended to conert all keys to kebab case, to prevent breaking in case of spaces
+function processDictionary(obj) {
+  if (typeof obj !== "object" || Array.isArray(obj)) {
+    return obj;
+  }
+
+  var toRet = {};
+
+  if (obj.hasOwnProperty("value")) {
+    return obj.value;
+  } else {
+    for (var name in obj) {
+      if (obj.hasOwnProperty(name)) {
+        toRet[_.kebabCase(name)] = processDictionary(obj[name]);
+      }
+    }
+  }
+  return toRet;
+}
+
+StyleDictionary.registerFormat({
+  name: "json/colors",
+  formatter: function (dictionary) {
+    return JSON.stringify(processDictionary(dictionary.properties), null, 2);
   },
 });
 
 StyleDictionary.registerFormat({
-  name: "nestedTypography",
+  name: "json/typography",
   formatter: function (dictionary) {
     const textTokens = {
       fontSize: {},
@@ -72,27 +119,8 @@ StyleDictionary.registerFormat({
       for (const prop in propDict) {
         textTokens[prop][nameWithoutPrefix] = propDict[prop].value;
       }
-
-      // textTokens[nameWithoutPrefix] = Object.keys(propDict).reduce(
-      //   (res, key) => Object.assign(res, { [key]: propDict[key].value }),
-      //   {}
-      // );
     }
     return JSON.stringify(textTokens, null, 2);
-  },
-});
-
-/* Basic filter to separate typography tokens. It might need tweaking depending on the token data shape */
-StyleDictionary.registerFilter({
-  name: "isTypography",
-  matcher: isTypographyToken,
-});
-
-/* Basic filter to separate spacing tokens. */
-StyleDictionary.registerFilter({
-  name: "isSpacing",
-  matcher: function (prop) {
-    return prop.path[0] === "spacing";
   },
 });
 
@@ -102,19 +130,19 @@ module.exports = {
     js: {
       transformGroup: "js",
       buildPath: "./src/tokens/dist/",
-      transforms: ["size/px", "name/cti/camel"],
+      transforms: ["size/px", "size/percent", "name/cti/camel"], // HACK: for a reason, name/cti/camel transform doesn't affect the result, but prevents from token collision warning in console
       /* We split tokens into separate files - it will be easier to use them this way */
       files: [
         /* Filter and extract typography tokens */
         {
           destination: "typography.json",
-          format: "nestedTypography",
+          format: "json/typography",
           filter: "isTypography",
         },
         /* Filter and extract color tokens*/
         {
           destination: "colors.json",
-          format: "json/nested",
+          format: "json/colors",
 
           filter: {
             type: "color",
