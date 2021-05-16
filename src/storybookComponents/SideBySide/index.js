@@ -6,7 +6,7 @@ import React from "react";
  */
 const SideBySide = ({ children }) => {
   return (
-    <div className="grid w-full h-full grid-cols-2 overflow-auto gap-x-10">
+    <div className="grid w-full h-full grid-cols-2 py-6 overflow-auto">
       {children}
     </div>
   );

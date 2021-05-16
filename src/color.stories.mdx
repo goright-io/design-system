@@ -1,36 +1,53 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  Preview,
+} from "@storybook/addon-docs/blocks";
 
-import theme from "./utils/getTheme"
+import { themes as stbThemes, ThemeProvider, ensure } from "@storybook/theming";
+import theme from "./utils/getTheme";
+import SideBySide from "./storybookComponents/SideBySide";
 
-export const colors = theme.colors
-
+export const colors = theme.colors;
+export const lightPalette = colors.light;
+export const darkPalette = colors.dark;
+export const primaryPalette = colors.primary;
+export const grayPalette = colors.gray;
 
 <Meta title="Color Palette" />
 
 # Colors
 
-<ColorPalette>
-{Object.entries(colors).map(([k, v]) => {
-    if (typeof v === 'string' && (v.match(/^#/) || v.match(/^rgb/) || k.match(/color/i))) {
-      return <ColorItem key={k} title={k} colors={{ [k]: v }} />;
-    } else if (typeof v === 'object') {
-     
+export const generatePalette = (colors, namePrefix) =>
+  Object.entries(colors).map(([key, val]) =>
+    Object.entries(val).map(([k, v]) => {
+      const colorName = namePrefix + "-" + key + "-" + k;
       return (
-        <ColorItem
-          key={k}
-          title={k}
-          colors={Object.entries(v).reduce(
-            (acc, [key, value]) =>
-              typeof value === 'string' &&
-              (value.match(/^#/) || value.match(/^rgb/) || key.match(/color/i))
-                ? { ...acc, [key]: value }
-                : acc,
-            {}
-          )}
-        />
+        <ColorItem key={colorName} title={colorName} colors={{ [k]: v }} />
       );
-    }
-    return null;
-  })}
-</ColorPalette>
- 
+    })
+  );
+
+<Canvas>
+  <ColorPalette>
+    <ColorItem key="Primary" title="Primary" colors={primaryPalette} />
+  </ColorPalette>
+  <ColorPalette>
+    <ColorItem key="Gray" title="Gray" colors={grayPalette} />
+  </ColorPalette>
+  <div>
+    <SideBySide>
+      <div className="bg-gray-100 p-3">
+        <h2>Light Palette</h2>
+        <ColorPalette> {generatePalette(lightPalette, "light")}</ColorPalette>
+      </div>
+      <ThemeProvider theme={ensure(stbThemes.dark)}>
+        <div className="bg-gray-800 p-3">
+          <h2>Dark Palette</h2>
+          <ColorPalette> {generatePalette(darkPalette, "dark")}</ColorPalette>
+        </div>
+      </ThemeProvider>
+    </SideBySide>
+  </div>
+</Canvas>
