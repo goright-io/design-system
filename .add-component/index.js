@@ -48,8 +48,7 @@ fs.readFile("./src/index.js", "utf8", function (err, data) {
  * It's being updated automatically by add-component script
  * Don't edit it directly, your chages will be overwritten.
  */
-import "./global.css"
-export { colors, typography, spacing } from "./tokens";\n\n`;
+import "./global.css"\n\n`;
 
   // create the import and export statements
   const exportStatements = newComponents
