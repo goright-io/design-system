@@ -1,4 +1,6 @@
 module.exports = (name) => `
+import React from "react";
+
 /* ${name}
  *
  * TODO: add component description
