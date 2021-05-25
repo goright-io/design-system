@@ -1,0 +1,43 @@
+import PropTypes from "prop-types";
+import React from "react";
+import Text from "../Text";
+
+/* Cta Link
+ *
+ * A call-to-action link with decorative arrow afterwards
+ */
+const CtaLink = ({ to, as, ref, children, ...props }) => {
+  const Component = as;
+  const classes = "text-light-on-background-900 inline-flex items-center";
+
+  return Component ? (
+    <Component href={to}>
+      <Text as="a" variant="lgBolder" className={classes} ref={ref} {...props}>
+        {children}\u00a0→
+      </Text>
+    </Component>
+  ) : (
+    <>
+      <Text
+        as="a"
+        href={to}
+        variant="lgBolder"
+        className={classes}
+        ref={ref}
+        {...props}
+      >
+        {children}
+        {"\u2004"}→
+      </Text>
+    </>
+  );
+};
+
+CtaLink.propTypes = {
+  as: PropTypes.node,
+  children: PropTypes.node,
+  ref: PropTypes.node,
+  to: PropTypes.string,
+};
+
+export default CtaLink;
