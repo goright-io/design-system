@@ -3,7 +3,7 @@ name: Run visual tests
 on:
   push:
     paths:
-      - 'design-system/src/**'
+      - 'src/**'
 jobs:
   start-and-test:
     runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: design-system/tests/report/
+          path: tests/report/
