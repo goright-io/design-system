@@ -1,0 +1,33 @@
+
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import theme from "../../utils/getTheme"
+import Text from ".";
+
+
+export const variants = Object.keys(theme.fontSize);
+export const placeholder = "The quick brown fox jumped over the lazy dog."
+
+<Meta title="Components/Text" />
+
+## Text
+
+TODO: add component description
+
+<Canvas>
+   <Story
+    name="Default"
+  >
+  <div className="flex flex-col">
+  {variants.map(variant => <Text variant={variant}>{placeholder}</Text>)}
+  </div>
+   </Story>
+   <Story
+    name="With As Prop"
+    args={{ variant: "base", as: "h2"}}
+    argTypes={{
+      variant: { control: { type: "select", options: variants } },
+    }}
+  >
+    {(args) => <Text  {...args} >{placeholder}</Text>}
+  </Story>
+</Canvas>

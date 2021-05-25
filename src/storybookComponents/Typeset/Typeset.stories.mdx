@@ -1,0 +1,19 @@
+
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import Typeset from ".";
+import theme from "../../utils//getTheme"
+
+export const fontSize = theme.fontSize;
+export const fontWeight = theme.fontWeight;
+
+
+<Meta title="Storybook Components/Typeset" />
+
+## Typeset
+
+Custom extended Typeset compoents
+
+<Preview>
+    <Typeset fontSize="14px" variants= {{"fontSize": fontSize}}/>
+</Preview>

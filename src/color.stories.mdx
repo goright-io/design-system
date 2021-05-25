@@ -1,14 +1,53 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  Preview,
+} from "@storybook/addon-docs/blocks";
 
-import { colors } from './tokens';
+import { themes as stbThemes, ThemeProvider, ensure } from "@storybook/theming";
+import theme from "./utils/getTheme";
+import SideBySide from "./storybookComponents/SideBySide";
+
+export const colors = theme.colors;
+export const lightPalette = colors.light;
+export const darkPalette = colors.dark;
+export const primaryPalette = colors.primary;
+export const grayPalette = colors.gray;
 
 <Meta title="Color Palette" />
 
 # Colors
 
-<ColorPalette>
-{Object.entries(colors).map(([name, val]) => {
-   return <ColorItem key={name} title={name} colors={[val]} />
-})}
-</ColorPalette>
- 
+export const generatePalette = (colors, namePrefix) =>
+  Object.entries(colors).map(([key, val]) =>
+    Object.entries(val).map(([k, v]) => {
+      const colorName = namePrefix + "-" + key + "-" + k;
+      return (
+        <ColorItem key={colorName} title={colorName} colors={{ [k]: v }} />
+      );
+    })
+  );
+
+<Canvas>
+  <ColorPalette>
+    <ColorItem key="Primary" title="Primary" colors={primaryPalette} />
+  </ColorPalette>
+  <ColorPalette>
+    <ColorItem key="Gray" title="Gray" colors={grayPalette} />
+  </ColorPalette>
+  <div>
+    <SideBySide>
+      <div className="bg-gray-100 p-3">
+        <h2>Light Palette</h2>
+        <ColorPalette> {generatePalette(lightPalette, "light")}</ColorPalette>
+      </div>
+      <ThemeProvider theme={ensure(stbThemes.dark)}>
+        <div className="bg-gray-800 p-3">
+          <h2>Dark Palette</h2>
+          <ColorPalette> {generatePalette(darkPalette, "dark")}</ColorPalette>
+        </div>
+      </ThemeProvider>
+    </SideBySide>
+  </div>
+</Canvas>

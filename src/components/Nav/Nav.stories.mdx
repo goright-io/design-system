@@ -1,0 +1,29 @@
+
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+
+import Nav from ".";
+
+<Meta title="Components/Nav" />
+
+## Nav
+
+export const navItems =[
+  {
+    name: "Workshops",
+    href: "/workshops"
+  },
+  {
+    name: "Services",
+    href: "/services"
+  },
+  {
+    name: "About us",
+    href: "/about"
+  },
+]
+
+<Preview>
+  <Story name="Default">
+    <Nav items={navItems}/>
+  </Story>
+</Preview>

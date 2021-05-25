@@ -1,32 +1,37 @@
-import { Meta, Typeset, Story } from '@storybook/addon-docs/blocks';
-import { typography } from "./tokens";
+import { Meta,  Story, Canvas } from "@storybook/addon-docs/blocks";
+import Typeset from "./components/Typeset"
+import theme from "./utils/getTheme"
+export const fontSize = theme.fontSize;
+export const fontWeight = theme.fontWeight;
+export const fontFamily = theme.fontFamily;
+export const letterSpacing = theme.letterSpacing;
+
+export const defaultStyle = {
+  sampleText: "Design systems are awesome",
+  fontFamily: fontFamily.base,
+  fontSize: fontSize.xl
+  }
 
 <Meta title="Typography" />
 
 # Typography
 
-## Headings
+## Font Sizes
 
-<p><b>Font:</b> {typography.headline1FontFamily}</p>
-<p><b>Weight:</b> {typography.headline1FontWeight}</p>
+<Canvas>
+<Typeset {...defaultStyle}  variants= {{"fontSize": fontSize}}/>
+</Canvas>
 
-<Typeset
-  sampleText="Design systems are awesome"
-  fontSizes={Object.entries(typography).filter((e) => e[0].startsWith("headline") && e[0].includes("FontSize") ).map(i => i[1])}
-  fontWeight={typography.headline1FontWeight}
-  fontFamily={Object.entries(typography).filter((e) => e[0].includes("FontFamily")).map(i => i[1])}
-  style={{ letterSpacing: "normal", lineHeight: "48px" }}
-/>
 
-## Paragraphs
+## Font Weights
 
-<p><b>Font:</b> {typography.paragraph1FontFamily}</p>
-<p><b>Weight:</b> {typography.paragraph1FontWeight}</p>
+<Canvas>
+  <Typeset {...defaultStyle}  variants= {{"fontWeight": fontWeight}}/>
+</Canvas>
 
-<Typeset
-  sampleText="Design systems are awesome"
-  fontSizes={Object.entries(typography).filter((e) => e[0].startsWith("paragraph") && e[0].includes("FontSize") ).map(i => i[1])}
-  fontWeight={typography.paragraph1FontWeight}
-  fontFamily={Object.entries(typography).filter((e) => e[0].includes("FontFamily")).map(i => i[1])}
-  style={{ letterSpacing: "normal", lineHeight: "48px" }}
-/>
+
+## Letter Spacing
+
+<Canvas>
+  <Typeset {...defaultStyle}  variants= {{"letterSpacing": letterSpacing}}/>
+</Canvas>
