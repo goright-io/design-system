@@ -1,0 +1,26 @@
+
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import Icon from ".";
+import * as CarbonIcons from "@carbon/icons-react";
+
+<Meta title="Components/Icon" />
+
+## Icon
+
+Wrapper component around Carbon Design Icons. Expects `name` prop with the name of icon. 
+
+Full library of icons can be found [here](https://www.carbondesignsystem.com/guidelines/icons/library). 
+Available icon sizes: __16px__, __20px__, __24px__, __32px__.
+
+These icons we currently use:
+
+export const IconsGoRight = ["Education32", "TableOfContents32", "Delivery32", "Idea32", "EventsAlt32", "Forum32", "Group32", "ChartMarimekko32"]
+
+<Canvas>
+  <Story name="Default">
+    {IconsGoRight.map(icon => <div className="inline-flex m-2" key={icon}><Icon  name={icon}/>  </div>  )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Icon} />
