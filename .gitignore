@@ -3,3 +3,4 @@ node_modules
 tests/report
 !tests/report/README.md
 /dist
+storybook-static
