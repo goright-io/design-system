@@ -8,7 +8,8 @@ import Text from "../Text";
  */
 const CtaLink = ({ to, as, ref, children, ...props }) => {
   const Component = as;
-  const classes = "text-light-on-background-900 inline-flex items-center";
+  const classes =
+    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1";
 
   return Component ? (
     <Component href={to}>
@@ -27,7 +28,10 @@ const CtaLink = ({ to, as, ref, children, ...props }) => {
         {...props}
       >
         {children}
-        {"\u2004"}→
+        {"\u2004"}
+        <span className="transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
+          →
+        </span>
       </Text>
     </>
   );

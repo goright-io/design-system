@@ -5,7 +5,13 @@ import classnames from "classnames";
  *
  * Any text block
  */
-const Text = ({ variant, children, as: Component = "p", className }) => {
+const Text = ({
+  variant,
+  children,
+  as: Component = "p",
+  className,
+  ...props
+}) => {
   const variants = {
     "9Xl": "text-9Xl font-9Xl tracking-9Xl leading-9Xl",
     "8Xl": "text-8Xl font-8Xl tracking-8Xl leading-8Xl",
@@ -28,7 +34,7 @@ const Text = ({ variant, children, as: Component = "p", className }) => {
     xsBolder: "text-xsBolder font-xsBolder tracking-xsBolder leading-xsBolder",
   };
   return (
-    <Component className={classnames(variants[variant], className)}>
+    <Component className={classnames(variants[variant], className)} {...props}>
       {children}
     </Component>
   );
