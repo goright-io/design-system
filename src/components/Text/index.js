@@ -35,9 +35,10 @@ const Text = ({ variant, children, as: Component = "p", className }) => {
 };
 
 Text.propTypes = {
-  as: PropTypes.any,
-  children: PropTypes.any,
-  variant: PropTypes.any,
+  as: PropTypes.node,
+  children: PropTypes.node,
+  variant: PropTypes.string,
+  className: PropTypes.string,
 };
 
 // Text.defaultProps = {
