@@ -1,0 +1,66 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+
+import Card from ".";
+import Text from "../Text";
+
+<Meta title="Components/Card" />
+
+## Card
+
+Card/Teaser/Preview. Displays content intro and link to the page with full content
+
+export const argsDefault = {
+  heading: "5 & 6 May – 10-14 CEST",
+  link: "Check tickets",
+};
+export const argsInGrid = {
+  cards: [
+    {
+      heading: "5 & 6 May – 10-14 CEST",
+      link: "Check tickets",
+    },
+    {
+      heading: "Sep ? – 10-14 CEST",
+      link: "Get early-bird tickets",
+    },
+    {
+      heading: "Need a custom workshop for your team",
+      link: "Let's talk",
+    },
+  ],
+};
+
+<Canvas>
+  <Story name="Default" args={argsDefault}>
+    {(args) => (
+      <Card {...args}>
+        <Text variant="smBolder" className="mb-3">
+          Available tickets:
+        </Text>
+        <p>Designers: SOLD OUT</p>
+        <p>Developers: 1</p>
+      </Card>
+    )}
+  </Story>
+  <Story name="In grid" args={argsInGrid}>
+    {(args) => (
+      <div className="grid grid-cols-3 gap-10">
+        {args.cards.map((card, i) => (
+          <Card {...card}>
+            {i !== 2 && (
+              <>
+                <Text variant="smBolder" className="mb-3">
+                  Available tickets:
+                </Text>
+                <p>Designers: SOLD OUT</p>
+                <p>Developers: 1</p>
+              </>
+            )}
+          </Card>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Card} />
