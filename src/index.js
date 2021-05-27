@@ -11,3 +11,4 @@ export { default as CtaLink } from "./components/CtaLink";
 export { default as Logo } from "./components/Logo";
 export { default as Nav } from "./components/Nav";
 export { default as Text } from "./components/Text";
+export { default as Timetable } from "./components/Timetable";
