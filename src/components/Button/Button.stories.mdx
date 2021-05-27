@@ -2,7 +2,6 @@ import { ArgsTable, Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
 import { config, withDesign } from "storybook-addon-designs";
 import Button from ".";
 import { ChevronRight24 } from '@carbon/icons-react';
-console.log("🚀 ~ file: Button.stories.mdx ~ line 5 ~ ChevronRight", ChevronRight24);
 
 <Meta title="Components/Button" decorators={[withDesign]} />
 
@@ -34,7 +33,7 @@ Button component provides interfaces for all types of the buttons. Different typ
   </Story>
   <Story
     name="With Icon"
-    args={{ label: "Button", variant: "big"}}
+    args={{ variant: "small"}}
     argTypes={{
       variant: { control: { type: "select", options: ["small", "big"] } },
     }}

@@ -1,10 +1,17 @@
 import PropTypes from "prop-types";
 import React from "react";
+import classnames from "classnames";
 /* Text
  *
  * Any text block
  */
-const Text = ({ variant, children, as: Component = "p" }) => {
+const Text = ({
+  variant,
+  children,
+  as: Component = "p",
+  className,
+  ...props
+}) => {
   const variants = {
     "9Xl": "text-9Xl font-9Xl tracking-9Xl leading-9Xl",
     "8Xl": "text-8Xl font-8Xl tracking-8Xl leading-8Xl",
@@ -26,13 +33,18 @@ const Text = ({ variant, children, as: Component = "p" }) => {
     xs: "text-xs font-xs tracking-xs leading-xs",
     xsBolder: "text-xsBolder font-xsBolder tracking-xsBolder leading-xsBolder",
   };
-  return <Component className={variants[variant]}>{children}</Component>;
+  return (
+    <Component className={classnames(variants[variant], className)} {...props}>
+      {children}
+    </Component>
+  );
 };
 
 Text.propTypes = {
-  as: PropTypes.any,
-  children: PropTypes.any,
-  variant: PropTypes.any,
+  as: PropTypes.node,
+  children: PropTypes.node,
+  variant: PropTypes.string,
+  className: PropTypes.string,
 };
 
 // Text.defaultProps = {

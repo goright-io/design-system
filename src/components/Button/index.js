@@ -12,9 +12,7 @@ const variants = {
   big: "py-4 px-6 text-xlBolder font-xlBolder tracking-xlBolder leading-xlBolder rounded",
 };
 const Button = ({ href, label, children, variant, ...props }) => {
-  console.log("🚀 ~ file: index.js ~ line 15 ~ Button ~ href", href);
   const Component = href ? "a" : "button";
-  console.log("🚀 ~ file: index.js ~ line 16 ~ Button ~ Component", Component);
   return (
     <Component
       href={href}
