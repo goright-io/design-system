@@ -9,7 +9,7 @@
     "storybook:build": "build-storybook -s .storybook/public",
     "storybook:deploy": "gh-pages -d storybook-static",
     "add-component": "node .add-component/index.js",
-    "version": "yarn build && git add dist/",
+    "version": "yarn build && git add dist/ -f",
     "tokens": "style-dictionary build --config ./src/tokens/config.js",
     "test": "yarn creevey",
     "test:update": "yarn creevey --update",
