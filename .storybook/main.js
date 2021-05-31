@@ -1,5 +1,5 @@
 const path = require("path");
-const pathToInlineSvg = path.resolve(__dirname, "../src/components/Logo");
+const pathToInlineSvg = path.resolve(__dirname, "../src/components/");
 const webpack = require("webpack");
 
 const tokensFileName = "design-tokens.json";
