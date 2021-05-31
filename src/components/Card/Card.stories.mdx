@@ -11,21 +11,21 @@ Card/Teaser/Preview. Displays content intro and link to the page with full conte
 
 export const argsDefault = {
   heading: "5 & 6 May – 10-14 CEST",
-  link: "Check tickets",
+  link: { text: "Check tickets", href: "https://goright.io" },
 };
 export const argsInGrid = {
   cards: [
     {
       heading: "5 & 6 May – 10-14 CEST",
-      link: "Check tickets",
+      link: { text: "Check tickets", href: "https://goright.io" },
     },
     {
-      heading: "Sep ? – 10-14 CEST",
-      link: "Get early-bird tickets",
+      heading: "Sep ? – 10-14z CEST",
+      link: { text: "Get early-bird tickets", href: "https://goright.io" },
     },
     {
       heading: "Need a custom workshop for your team",
-      link: "Let's talk",
+      link: { text: "Let's talk", href: "https://goright.io" },
     },
   ],
 };
@@ -34,11 +34,13 @@ export const argsInGrid = {
   <Story name="Default" args={argsDefault}>
     {(args) => (
       <Card {...args}>
-        <Text variant="smBolder" className="mb-3">
-          Available tickets:
-        </Text>
-        <p>Designers: SOLD OUT</p>
-        <p>Developers: 1</p>
+        <div className="mb-6">
+          <Text variant="smBolder" className="mb-3">
+            Available tickets:
+          </Text>
+          <p>Designers: SOLD OUT</p>
+          <p>Developers: 1</p>
+        </div>
       </Card>
     )}
   </Story>
@@ -46,15 +48,15 @@ export const argsInGrid = {
     {(args) => (
       <div className="grid grid-cols-3 gap-10">
         {args.cards.map((card, i) => (
-          <Card {...card}>
+          <Card {...card} key={card.heading + i}>
             {i !== 2 && (
-              <>
+              <div className="mb-6">
                 <Text variant="smBolder" className="mb-3">
                   Available tickets:
                 </Text>
                 <p>Designers: SOLD OUT</p>
                 <p>Developers: 1</p>
-              </>
+              </div>
             )}
           </Card>
         ))}
