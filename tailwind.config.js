@@ -7,7 +7,6 @@ module.exports = {
   mode: "jit",
   purge: ["./src/**/*.{js,jsx,md,mdx}"],
   theme: {
-    // extend: {
     colors: {
       ...colors,
     },
@@ -15,9 +14,16 @@ module.exports = {
     fontWeight: { ...typography.fontWeight },
     lineHeight: { ...typography.lineHeight },
     letterSpacing: { ...typography.letterSpacing },
-    fontFamily: {
-      base: [typography.fontFamily.base, ...defaultTheme.fontFamily.sans],
+    fontFamily: Object.fromEntries(
+      Object.entries(typography.fontFamily).map(([fkey, fval]) => [
+        fkey,
+        [fval, ...defaultTheme.fontFamily.sans],
+      ])
+    ),
+    extend: {
+      scale: {
+        mirror: "-1",
+      },
     },
   },
-  // },
 };
