@@ -381,9 +381,19 @@
       "value": "rgba(14, 165, 233, 1)",
       "type": "color"
     },
-    "green": {
+    "turqoise": {
       "category": "fill",
       "value": "rgba(20, 184, 166, 1)",
+      "type": "color"
+    },
+    "green": {
+      "category": "fill",
+      "value": "rgba(16, 185, 129, 1)",
+      "type": "color"
+    },
+    "yellow": {
+      "category": "fill",
+      "value": "rgba(250, 204, 21, 1)",
       "type": "color"
     }
   },
