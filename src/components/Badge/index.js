@@ -10,7 +10,7 @@ function capitalize(string) {
  *
  * TODO: add component description
  */
-const Badge = ({ role, isVisible }) => {
+const Badge = ({ role, isHidden }) => {
   const badgeClass = role === "developer" ? "mr-4" : "mb-";
   const iconClass =
     role === "developer"
@@ -22,7 +22,7 @@ const Badge = ({ role, isVisible }) => {
       : "bg-accent-green text-light-background-900";
   return (
     <div className={classnames(badgeClass, "flex flex-col items-start w-16")}>
-      {isVisible && (
+      {!isHidden && (
         <>
           <FigmaCursor className={iconClass} />
           <Text as="span" variant="xs" className={classnames(textClass, "p-1")}>
@@ -35,7 +35,7 @@ const Badge = ({ role, isVisible }) => {
 };
 
 Badge.propTypes = {
-  isVisible: PropTypes.bool,
+  isHidden: PropTypes.bool,
   role: PropTypes.string,
 };
 
