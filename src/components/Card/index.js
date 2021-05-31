@@ -8,6 +8,7 @@ import CtaLink from "../CtaLink";
  * TODO: add component description
  */
 const Card = ({ heading, link, children }) => {
+  const linkText = link.text;
   return (
     <div className="flex flex-col p-6 border border-light-on-background-900 hover:bg-primary-50 text-light-on-background-900">
       {heading && (
@@ -15,10 +16,10 @@ const Card = ({ heading, link, children }) => {
           {heading}
         </Text>
       )}
-      {children && <div className="mb-6">{children}</div>}
-      {link && (
+      {children && children}
+      {link && linkText && (
         <div className="mt-auto">
-          <CtaLink>{link}</CtaLink>
+          <CtaLink to={link.href}>{link.text}</CtaLink>
         </div>
       )}
     </div>
@@ -28,7 +29,10 @@ const Card = ({ heading, link, children }) => {
 Card.propTypes = {
   children: PropTypes.node,
   heading: PropTypes.string,
-  link: PropTypes.string,
+  link: PropTypes.shape({
+    text: PropTypes.string,
+    href: PropTypes.string,
+  }),
 };
 
 export default Card;
