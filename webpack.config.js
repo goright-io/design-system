@@ -5,6 +5,7 @@
 const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const paths = {
   libSrc: path.resolve(__dirname, "src"),
@@ -26,6 +27,10 @@ module.exports = (_, argv) => {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+      chunkFilename: "styles.css",
+    }),
     new webpack.NamedModulesPlugin(),
   ];
 
@@ -35,16 +40,20 @@ module.exports = (_, argv) => {
     output: {
       path: paths.libOutputDir,
       filename: libraryName + ".js",
-      library: libraryName,
-      libraryTarget: "umd",
-      umdNamedDefine: true,
+      libraryTarget: "commonjs",
     },
     module: {
       rules: [
         {
           test: /\.css$/,
           exclude: /node_modules/,
-          use: ["style-loader", "css-loader"],
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+            },
+            "css-loader",
+            "postcss-loader",
+          ],
         },
         {
           test: /\.(js|jsx)$/,
