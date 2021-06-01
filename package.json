@@ -1,6 +1,6 @@
 {
   "name": "@goright/design-system",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "main": "dist/design-system.js",
   "license": "MIT",
   "scripts": {
