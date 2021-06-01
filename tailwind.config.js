@@ -20,10 +20,8 @@ module.exports = {
         [fval, ...defaultTheme.fontFamily.sans],
       ])
     ),
-    extend: {
-      scale: {
-        mirror: "-1",
-      },
+    scale: {
+      mirror: "-1",
     },
   },
 };

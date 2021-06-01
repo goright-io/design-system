@@ -14,3 +14,6 @@ export { default as Logo } from "./components/Logo";
 export { default as Nav } from "./components/Nav";
 export { default as Text } from "./components/Text";
 export { default as Timetable } from "./components/Timetable";
+export { default as colors } from "./tokens/dist/colors.json";
+export { default as typography } from "./tokens/dist/typography.json";
+export { default as twconfig } from "../tailwind.config";

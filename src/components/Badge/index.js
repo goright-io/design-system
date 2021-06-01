@@ -3,12 +3,13 @@ import React from "react";
 import { ReactComponent as FigmaCursor } from "./figmaCursor.svg";
 import Text from "../Text";
 import classnames from "classnames";
+
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 /* Badge
  *
- * TODO: add component description
+ * a label with role description
  */
 const Badge = ({ role, isHidden }) => {
   const badgeClass = role === "developer" ? "mr-4" : "mb-";

@@ -7,7 +7,15 @@ import classnames from "classnames";
  *
  * A call-to-action link with decorative arrow afterwards
  */
-const CtaLink = ({ to, as, ref, children, className, ...props }) => {
+const CtaLink = ({
+  to,
+  as,
+  ref,
+  children,
+  className,
+  arrow = "end",
+  ...props
+}) => {
   const Component = as;
   const classes =
     "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1";
@@ -21,7 +29,7 @@ const CtaLink = ({ to, as, ref, children, className, ...props }) => {
         ref={ref}
         {...props}
       >
-        {children}\u00a0→
+        {arrow === "start" ? `\u00a0→${children}` : children}
       </Text>
     </Component>
   ) : (
@@ -34,13 +42,22 @@ const CtaLink = ({ to, as, ref, children, className, ...props }) => {
         ref={ref}
         {...props}
       >
+        {arrow === "start" && (
+          <span className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none">
+            ←
+          </span>
+        )}
         <span>
+          {arrow == "start" && "\u2004"}
+
           {children}
-          {"\u2004"}
+          {arrow == "end" && "\u2004"}
         </span>
-        <span className="transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
-          →
-        </span>
+        {arrow === "end" && (
+          <span className="transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
+            →
+          </span>
+        )}
       </Text>
     </>
   );
@@ -52,6 +69,7 @@ CtaLink.propTypes = {
   ref: PropTypes.node,
   to: PropTypes.string,
   className: PropTypes.string,
+  arrow: PropTypes.oneOf(["start", "end"]),
 };
 
 export default CtaLink;

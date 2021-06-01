@@ -1,6 +1,6 @@
 {
   "name": "@goright/design-system",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "dist/design-system.js",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,8 @@
     "storybook:build": "build-storybook -s .storybook/public",
     "storybook:deploy": "gh-pages -d storybook-static",
     "add-component": "node .add-component/index.js",
-    "version": "yarn build && git add dist/",
+    "version": "yarn build && git add dist/ -f",
+    "publish": "npm publish --access public",
     "tokens": "style-dictionary build --config ./src/tokens/config.js",
     "test": "yarn creevey",
     "test:update": "yarn creevey --update",
@@ -42,7 +43,9 @@
     "gh-pages": "^3.2.0",
     "img-loader": "^2.0.1",
     "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^1.6.0",
     "postcss": "^8.2.15",
+    "postcss-loader": "^4.2.0",
     "prettier": "^2.2.1",
     "storybook-addon-designs": "^5.4.5",
     "style-dictionary": "^2.10.3",
