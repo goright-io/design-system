@@ -34,8 +34,16 @@ const Timetable = ({ data, header }) => {
                   {row.time}
                 </Text>
               </th>
-              <th className="w-1/2 p-0 text-left">{row.name}</th>
-              <th className="w-1/2 p-0 text-left">{row.description}</th>
+              <th className="w-1/2 p-0 text-left">
+                <Text as="span" variant="xlBolder">
+                  {row.name}
+                </Text>
+              </th>
+              <th className="w-1/2 p-0 text-left">
+                <Text as="span" variant="xlBolder">
+                  {row.description}
+                </Text>
+              </th>
             </tr>
           ))}
         </tbody>
@@ -57,3 +65,12 @@ Timetable.propTypes = {
 };
 
 export default Timetable;
+
+// table, caption, tbody, tfoot, thead, tr, th, td {
+//   margin: 0;
+//   padding: 0;
+//   border-width: 0;
+//   font-size: 100%;
+//   font: inherit;
+//   vertical-align: baseline;
+// }
