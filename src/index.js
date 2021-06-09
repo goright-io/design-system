@@ -3,7 +3,6 @@
  * It's being updated automatically by add-component script
  * Don't edit it directly, your chages will be overwritten.
  */
-import "./global.css";
 
 export { default as Badge } from "./components/Badge";
 export { default as Button } from "./components/Button";

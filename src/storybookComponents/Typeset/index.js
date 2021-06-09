@@ -34,9 +34,9 @@ const Typeset = ({
 }) => (
   <Wrapper {...props} className="docblock-typeset">
     {Object.entries(variants).map(([propname, options]) =>
-      Object.entries(options).map(([optname, optvalue]) => (
-        <TypeSpecimen key={propname}>
-          <Label key={propname}>
+      Object.entries(options).map(([optname, optvalue], i) => (
+        <TypeSpecimen key={propname + i}>
+          <Label>
             <div className="mb-2">{optname}</div>
             <div className="text-sm text-light-background-300">{optvalue}</div>
           </Label>

@@ -47,8 +47,7 @@ fs.readFile("./src/index.js", "utf8", function (err, data) {
  * This is an index file for your library.
  * It's being updated automatically by add-component script
  * Don't edit it directly, your chages will be overwritten.
- */
-import "./global.css"\n\n`;
+ */`;
 
   // create the import and export statements
   const exportStatements = newComponents

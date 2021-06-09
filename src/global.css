@@ -1,13 +1,5 @@
 /* Reset table styles */
-
-table, caption, tbody, tfoot, thead, tr, th, td {
-  margin: 0;
-  padding: 0;
-  border-width: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
+/* Only for storybook, nothing from this file will make it to the bundle */
 
 @tailwind base;
 @tailwind components;
