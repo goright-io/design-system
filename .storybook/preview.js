@@ -4,7 +4,7 @@ import "../src/global.css";
 export const parameters = {
   options: {
     storySort: {
-      order: ["Intro", "Typography", "Color Palette", "Components"],
+      order: ["Intro", "Color Palette", "Typography", "Components"],
     },
   },
   actions: { disable: true },

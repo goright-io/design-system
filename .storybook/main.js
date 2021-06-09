@@ -65,8 +65,9 @@ module.exports = {
           },
         },
       ],
-      include: path.resolve(__dirname, "../"),
+      include: path.resolve(__dirname, "public"),
     });
+    console.log(path.resolve(__dirname, "public"));
 
     /*
      * Add plugin which adds design-tokens source file to watch scope
