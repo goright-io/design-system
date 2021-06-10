@@ -8,17 +8,18 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 const sizes = {
   small:
-    "py-2 px-3  text-baseBolder font-baseBolder tracking-baseBolder leading-baseBolder rounded-sm",
+    "py-2 px-3 text-baseBolder font-baseBolder tracking-baseBolder leading-baseBolder rounded-sm",
   big: "py-4 px-6 text-xlBolder font-xlBolder tracking-xlBolder leading-xlBolder rounded",
 };
-const Button = ({ href, label, children, size, ...props }) => {
+const Button = ({ href, label, children, size, className, ...props }) => {
   const Component = href ? "a" : "button";
   return (
     <Component
       href={href}
       className={classnames(
         size ? sizes[size] : sizes.big,
-        "bg-primary-500 text-light-background-900 inline-flex items-center"
+        "bg-primary-500 text-light-background-900 inline-flex items-center",
+        className
       )}
       {...props}
     >
@@ -32,6 +33,7 @@ Button.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
   size: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Button;

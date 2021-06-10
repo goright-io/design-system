@@ -33,6 +33,7 @@ const Card = ({ heading, link, children, className }) => {
 };
 
 Card.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node,
   heading: PropTypes.string,
   link: PropTypes.shape({
