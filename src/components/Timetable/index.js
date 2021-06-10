@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Text from "../Text";
+import classnames from "classnames";
 
 /* Timetable
  *
  * A table to represent workshop programm in structured way
  */
-const Timetable = ({ data, header }) => {
+const Timetable = ({ data, header, className }) => {
   return (
     data && (
       <Text
         as="table"
         variant="xlBolder"
-        className="w-full text-light-on-background-900"
+        className={classnames("text-light-on-background-900", className)}
       >
         {header && (
           <Text as="caption" variant="4Xl" className="mb-5 text-left">
@@ -62,6 +63,7 @@ Timetable.propTypes = {
     })
   ),
   header: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Timetable;

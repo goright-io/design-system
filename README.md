@@ -11,3 +11,13 @@
 - `yarn test` - run tests with [creevey](https://github.com/wKich/creevey)
 - `yarn test:ui` - run creevey with UI
 - `yarn test:update` - update all screenshots for creevey
+
+## Rules on className usage
+
+Almost all components have className API which allows quickly set custom margins and positioning for the elements. It's important to have an agreement on className separation and determine what can be used in component library and what - on the project side. While most classes should belong to component itself, there are few which should not be used in the top element of component which has className API (list to be upated):
+
+- __margin:__ `m-2`, `mx-auto`, `m-4` etc..
+- __align-self:__ `self-auto`, `self-stretch`...
+- __width:__ `w-1/2`, `w-full`, `w-16`..
+
+It's ok to use this classes inside the components (not on the wrapper), or if you are creating a component which is not supposed to be modified or positioned, and doesn't need className prop.

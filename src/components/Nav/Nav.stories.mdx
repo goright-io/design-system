@@ -23,7 +23,7 @@ export const navItems =[
 ]
 
 <Preview>
-  <Story name="Default">
-    <Nav items={navItems}/>
+  <Story name="Default" args={{items: navItems}}>
+    {args => <Nav {...args} className="w-full"/>}
   </Story>
 </Preview>
