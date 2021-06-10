@@ -11,7 +11,7 @@ const Nav = ({ items, linkComponent, className }) => {
   return (
     <ul
       className={classnames(
-        "inline-flex justify-between w-full list-none text-light-on-background-900 dark:text-dark-on-background-900",
+        "inline-flex justify-between list-none text-light-on-background-900 dark:text-dark-on-background-900",
         className
       )}
     >

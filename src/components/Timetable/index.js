@@ -13,7 +13,7 @@ const Timetable = ({ data, header, className }) => {
       <Text
         as="table"
         variant="xlBolder"
-        className={classnames("w-full text-light-on-background-900", className)}
+        className={classnames("text-light-on-background-900", className)}
       >
         {header && (
           <Text as="caption" variant="4Xl" className="mb-5 text-left">
