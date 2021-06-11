@@ -47,11 +47,19 @@ fs.readFile("./src/index.js", "utf8", function (err, data) {
  * This is an index file for your library.
  * It's being updated automatically by add-component script
  * Don't edit it directly, your chages will be overwritten.
- */`;
+ */
+
+export { default as colors } from "./tokens/dist/colors.json";
+export { default as typography } from "./tokens/dist/typography.json";
+export { default as twconfig } from "../tailwind.config";
+
+`;
 
   // create the import and export statements
   const exportStatements = newComponents
-    .filter((component) => component !== "GlobalStyle")
+    .filter(
+      (component) => !["colors", "typography", "twconfig"].includes(component)
+    )
     .map(
       (component) =>
         `export { default as ${component} } from "./components/${component}";\n`

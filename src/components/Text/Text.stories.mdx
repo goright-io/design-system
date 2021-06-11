@@ -1,10 +1,10 @@
 
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import theme from "../../utils/getTheme"
+import theme, {getColors} from "../../utils/getTheme"
 import Text from ".";
 
-
 export const variants = Object.keys(theme.fontSize);
+export const colors = getColors();
 export const placeholder = "The quick brown fox jumped over the lazy dog."
 
 <Meta title="Components/Text" />
@@ -29,5 +29,14 @@ Any text on the page
     }}
   >
     {(args) => <Text  {...args} >{placeholder}</Text>}
+  </Story>
+   <Story
+    name="With Highlight"
+    args={{ highlight: "yellow-100"}}
+    argTypes={{
+      highlight: { control: { type: "select", options: Object.keys(colors) } },
+    }}
+  >
+    {(args) => <Text  as="span" variant="6Xl" {...args} >{"Figma and React"}</Text>}
   </Story>
 </Canvas>

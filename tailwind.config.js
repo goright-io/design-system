@@ -20,8 +20,29 @@ const generateTypography = (variant, theme) => {
   }, {});
 };
 
+const generateHighlights = (theme) => {
+  const generateColors = (colors, prefix) =>
+    Object.keys(colors).reduce((acc, key) => {
+      if (typeof colors[key] === "string") {
+        return {
+          ...acc,
+          [`${prefix}-${key}`]: `linear-gradient(to top, transparent 8px, ${colors[key]} 8px, ${colors[key]} 19px, transparent 19px)`,
+        };
+      }
+
+      const innerColors = generateColors(colors[key], `${prefix}-${key}`);
+
+      return {
+        ...acc,
+        ...innerColors,
+      };
+    }, {});
+
+  return generateColors(theme("colors"), "highlight");
+};
+
 const conf = {
-  purge: [],
+  // purge: [],
   theme: {
     fontSize: { ...typography.fontSize },
     fontWeight: { ...typography.fontWeight },
@@ -31,6 +52,7 @@ const conf = {
       colors: {
         ...colors,
       },
+      backgroundImage: (theme) => generateHighlights(theme),
       fontFamily: Object.fromEntries(
         Object.entries(typography.fontFamily).map(([fkey, fval]) => [
           fkey,
@@ -144,6 +166,7 @@ const conf = {
       ],
     },
   },
+
   plugins: [
     require("@tailwindcss/typography"),
     require("./tailwindPlugins/font-face")(),

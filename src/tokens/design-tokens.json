@@ -365,6 +365,14 @@
       "type": "color"
     }
   },
+  "yellow": {
+    "100": {
+      "category": "fill",
+      "comment": "#FFE1C6",
+      "value": "rgba(255, 225, 198, 1)",
+      "type": "color"
+    }
+  },
   "accent": {
     "red": {
       "category": "fill",
