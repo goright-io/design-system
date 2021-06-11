@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 import classnames from "classnames";
+import { getColors } from "../../utils/getTheme";
+
 /* Text
  *
  * Any text block
@@ -10,6 +12,7 @@ const Text = ({
   children,
   as: Component = "p",
   className,
+  highlight,
   ...props
 }) => {
   const variants = {
@@ -33,9 +36,15 @@ const Text = ({
     xs: "text-xs font-xs tracking-xs leading-xs",
     xsbolder: "text-xsBolder font-xsBolder tracking-xsBolder leading-xsBolder",
   };
+
+  const highlightClasses = `bg-highlight-${highlight}`;
   return (
     <Component
-      className={classnames(variants[variant.toLowerCase()], className)}
+      className={classnames(
+        variants[variant.toLowerCase()],
+        highlight ? highlightClasses : "",
+        className
+      )}
       {...props}
     >
       {children}
@@ -48,6 +57,7 @@ Text.propTypes = {
   children: PropTypes.node,
   variant: PropTypes.string,
   className: PropTypes.string,
+  highlight: PropTypes.oneOf(Object.keys(getColors())),
 };
 
 // Text.defaultProps = {
