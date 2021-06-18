@@ -10,7 +10,7 @@
     "storybook:deploy": "gh-pages -d storybook-static",
     "add-component": "node .add-component/index.js",
     "version": "yarn build && git add dist/ -f",
-    "publish": "npm publish --access public",
+    "postversion": "npm publish --access public",
     "tokens": "style-dictionary build --config ./src/tokens/config.js",
     "test": "yarn creevey",
     "test:update": "yarn creevey --update",
@@ -61,6 +61,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-multi-carousel": "^2.6.3",
     "tailwindcss": "^2.1.2"
   }
 }
