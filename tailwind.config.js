@@ -49,6 +49,9 @@ const conf = {
     lineHeight: { ...typography.lineHeight },
     letterSpacing: { ...typography.letterSpacing },
     extend: {
+      width: {
+        150: "150%",
+      },
       colors: {
         ...colors,
       },

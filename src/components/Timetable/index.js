@@ -54,14 +54,14 @@ const Timetable = ({ data, header, className }) => {
 };
 
 Timetable.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      time: PropTypes.string,
-      name: PropTypes.string,
-      description: PropTypes.string,
-      color: PropTypes.string,
-    })
-  ),
+  // data: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     time: PropTypes.string,
+  //     name: PropTypes.string,
+  //     description: PropTypes.string,
+  //     color: PropTypes.string,
+  //   })
+  // ),
   header: PropTypes.string,
   className: PropTypes.string,
 };

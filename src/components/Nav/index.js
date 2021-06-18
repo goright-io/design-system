@@ -17,7 +17,7 @@ const Nav = ({ items, linkComponent, className }) => {
     >
       {items &&
         items.map((item) => (
-          <li key={item.href}>
+          <li key={item.href} className="px-2">
             <Text variant="2Xl" as={linkComponent || "a"} href={item.href}>
               {item.name}
             </Text>
@@ -29,13 +29,13 @@ const Nav = ({ items, linkComponent, className }) => {
 
 Nav.propTypes = {
   className: PropTypes.string,
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      href: PropTypes.string,
-    })
-  ),
-  linkComponent: PropTypes.node,
+  // items: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     name: PropTypes.string,
+  //     href: PropTypes.string,
+  //   })
+  // ),
+  linkComponent: PropTypes.elementType,
 };
 
 export default Nav;
