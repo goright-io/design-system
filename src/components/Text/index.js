@@ -8,7 +8,7 @@ import { getColors } from "../../utils/getTheme";
  * Any text block
  */
 const Text = ({
-  variant,
+  variant = "base",
   children,
   as: Component = "p",
   className,
@@ -60,8 +60,8 @@ Text.propTypes = {
   highlight: PropTypes.oneOf(Object.keys(getColors())),
 };
 
-// Text.defaultProps = {
-//   as: "h1",
-// };
+Text.defaultProps = {
+  as: "p",
+};
 
 export default Text;

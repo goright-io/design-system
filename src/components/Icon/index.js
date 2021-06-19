@@ -25,6 +25,7 @@ const Icon = ({ name, className }) => {
 
 Icon.propTypes = {
   name: PropTypes.string,
+  className: PropTypes.string,
 };
 
 export default Icon;
