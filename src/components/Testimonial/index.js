@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+
 import Text from "../Text";
 import classnames from "classnames";
 import { getBreakpoints } from "../../utils/getTheme";
@@ -14,14 +16,14 @@ import { ArrowRight32, ArrowLeft32 } from "@carbon/icons-react";
 
 const responsive = {
   bigdesktop: {
-    breakpoint: { max: 3000, min: breakpoints["2xl"] },
-    items: 3,
-    paritialVisibilityGutter: 70,
+    breakpoint: { max: 6000, min: breakpoints["2xl"] },
+    items: 2,
+    paritialVisibilityGutter: 20,
   },
   desktop: {
     breakpoint: { max: breakpoints["2xl"], min: breakpoints.xl },
     items: 2,
-    paritialVisibilityGutter: 120,
+    paritialVisibilityGutter: 40,
   },
   tablet: {
     breakpoint: { max: breakpoints["xl"], min: breakpoints.md },
@@ -31,7 +33,7 @@ const responsive = {
   mobile: {
     breakpoint: { max: breakpoints.md, min: 0 },
     items: 1,
-    paritialVisibilityGutter: 70,
+    paritialVisibilityGutter: 20,
   },
 };
 
@@ -70,45 +72,43 @@ const HeadingWthButtons = ({ previous, next, carouselState, ...props }) => {
 };
 const Testimonial = ({ testimonials }) => {
   return (
-    <div className="relative">
-      <Carousel
-        className="relative"
-        partialVisible
-        containerClass="container pt-16"
-        sliderClass="mt-16"
-        customButtonGroup={<HeadingWthButtons />}
-        itemClass="h-auto"
-        arrows={false}
-        responsive={responsive}
-        renderButtonGroupOutside
-      >
-        {testimonials.map((testimonial) => {
-          return (
-            <div
-              key={testimonial.name}
-              className={classnames(
-                testimonial.colors,
-                "p-10 mr-10 rounded-lg h-full flex flex-col"
-              )}
-            >
-              <Text variant="xlBolder" as="p" className="mb-6">
-                {testimonial.text}
+    <Carousel
+      className="relative"
+      partialVisible
+      containerClass="container pt-16 clip-left overflow-visible"
+      sliderClass="mt-16"
+      customButtonGroup={<HeadingWthButtons />}
+      itemClass="h-auto"
+      arrows={false}
+      responsive={responsive}
+      renderButtonGroupOutside
+    >
+      {testimonials.map((testimonial) => {
+        return (
+          <div
+            key={testimonial.name}
+            className={classnames(
+              testimonial.colors,
+              "p-10 mr-10 rounded-lg h-full flex flex-col"
+            )}
+          >
+            <Text variant="xlBolder" as="p" className="mb-6">
+              {testimonial.text}
+            </Text>
+            <div className="flex items-center mt-auto">
+              <img
+                src={testimonial.avatar}
+                alt={testimonial.name}
+                className="w-12 h-12 mr-3 rounded-full"
+              />
+              <Text variant="xlBolder" as="p">
+                {testimonial.name}
               </Text>
-              <div className="flex items-center mt-auto">
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 mr-3 rounded-full"
-                />
-                <Text variant="xlBolder" as="p">
-                  {testimonial.name}
-                </Text>
-              </div>
             </div>
-          );
-        })}
-      </Carousel>
-    </div>
+          </div>
+        );
+      })}
+    </Carousel>
   );
 };
 

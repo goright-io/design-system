@@ -2,6 +2,7 @@
 const colors = require("./src/tokens/dist/colors.json");
 const typography = require("./src/tokens/dist/typography.json");
 const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
 
 const typographyProps = [
   "fontSize",
@@ -42,7 +43,8 @@ const generateHighlights = (theme) => {
 };
 
 const conf = {
-  // purge: [],
+  important: true,
+  purge: ["src/**/*.js"],
   theme: {
     fontSize: { ...typography.fontSize },
     fontWeight: { ...typography.fontWeight },
@@ -173,6 +175,15 @@ const conf = {
   plugins: [
     require("@tailwindcss/typography"),
     require("./tailwindPlugins/font-face")(),
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        ".clip-left": {
+          "clip-path": "inset( -100vw -100vw -100vw 0 )",
+        },
+      };
+
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    }),
   ],
 };
 
