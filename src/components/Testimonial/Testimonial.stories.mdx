@@ -51,8 +51,24 @@ TODO: add component description
 
 <Canvas>
   <Story name="Default">
-     
-    <Testimonial testimonials={testimonials}/>
+    <Testimonial testimonials={testimonials} />
+  </Story>
+  <Story name="Container Overflow">
+    <div className="w-full  overflow-hidden">
+      <div className="relative max-w-4xl mx-auto bg-white">
+        <div className="flex items-start">
+          <Icon name="Forum32" className="mr-6" />
+          <Text variant="6Xl" as="h2">
+            People Say
+          </Text>
+        </div>
+        <div className="relative max-w-4xl mx-auto overflow-x-visible">
+          <div className="-mt-12">
+            <Testimonial testimonials={testimonials} />
+          </div>
+        </div>
+      </div>
+    </div>
   </Story>
 </Canvas>
 
