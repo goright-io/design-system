@@ -1,6 +1,6 @@
 {
   "name": "@goright/design-system",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "main": "dist/design-system.js",
   "license": "MIT",
   "scripts": {
@@ -9,7 +9,7 @@
     "storybook:build": "build-storybook -s .storybook/public",
     "storybook:deploy": "gh-pages -d storybook-static",
     "add-component": "node .add-component/index.js",
-    "version": "yarn build && git add dist/ -f",
+    "version": "git add dist/ -f",
     "postversion": "npm publish --access public",
     "tokens": "style-dictionary build --config ./src/tokens/config.js",
     "test": "yarn creevey",
