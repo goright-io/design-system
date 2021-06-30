@@ -171,7 +171,11 @@ const conf = {
       ],
     },
   },
-
+  variants: {
+    extend: {
+      translate: ["group-hover"],
+    },
+  },
   plugins: [
     require("@tailwindcss/typography"),
     require("./tailwindPlugins/font-face")(),

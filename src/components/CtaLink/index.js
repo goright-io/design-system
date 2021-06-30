@@ -16,50 +16,35 @@ const CtaLink = ({
   arrow = "end",
   ...props
 }) => {
-  const Component = as;
   const classes =
     "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1";
 
-  return Component ? (
-    <Component href={to}>
-      <Text
-        as="a"
-        variant="lgBolder"
-        className={classnames(classes, className)}
-        ref={ref}
-        {...props}
-      >
-        {arrow === "start" ? `\u00a0→${children}` : children}
-      </Text>
-    </Component>
-  ) : (
-    <>
-      <Text
-        as="a"
-        href={to}
-        variant="lgBolder"
-        className={classes}
-        ref={ref}
-        {...props}
-      >
-        {arrow === "start" && (
-          <span className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none">
-            ←
-          </span>
-        )}
-        <span>
-          {arrow == "start" && "\u2004"}
-
-          {children}
-          {arrow == "end" && "\u2004"}
+  return (
+    <Text
+      as="a"
+      href={to}
+      variant="lgBolder"
+      className={classes}
+      ref={ref}
+      {...props}
+    >
+      {arrow === "start" && (
+        <span className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none">
+          ←
         </span>
-        {arrow === "end" && (
-          <span className="transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
-            →
-          </span>
-        )}
-      </Text>
-    </>
+      )}
+      <span>
+        {arrow == "start" && "\u2004"}
+
+        {children}
+        {arrow == "end" && "\u2004"}
+      </span>
+      {arrow === "end" && (
+        <span className="transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
+          →
+        </span>
+      )}
+    </Text>
   );
 };
 
