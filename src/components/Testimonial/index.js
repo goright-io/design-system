@@ -89,7 +89,7 @@ const Testimonial = ({ testimonials }) => {
             key={testimonial.name}
             className={classnames(
               testimonial.colors,
-              "p-10 mr-10 rounded-lg h-full flex flex-col"
+              "p-10 mr-10 rounded-lg h-full flex flex-col min-w-96 max-w-112"
             )}
           >
             <Text variant="xlBolder" as="p" className="mb-6">

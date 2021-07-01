@@ -52,6 +52,7 @@ fs.readFile("./src/index.js", "utf8", function (err, data) {
 export { default as colors } from "./tokens/dist/colors.json";
 export { default as typography } from "./tokens/dist/typography.json";
 export { default as twconfig } from "../tailwind.config";
+import "./style.css";
 
 `;
 
