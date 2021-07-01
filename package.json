@@ -2,6 +2,9 @@
   "name": "@goright/design-system",
   "version": "0.0.9",
   "main": "dist/design-system.js",
+  "files": [
+    "dist/**"
+  ],
   "license": "MIT",
   "scripts": {
     "start": "yarn tokens && start-storybook -s .storybook/public -p 6006",

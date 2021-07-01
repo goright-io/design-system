@@ -54,6 +54,12 @@ const conf = {
       width: {
         150: "150%",
       },
+      minWidth: {
+        96: "24rem",
+      },
+      maxWidth: {
+        112: "28rem",
+      },
       colors: {
         ...colors,
       },
@@ -171,7 +177,11 @@ const conf = {
       ],
     },
   },
-
+  variants: {
+    extend: {
+      translate: ["group-hover"],
+    },
+  },
   plugins: [
     require("@tailwindcss/typography"),
     require("./tailwindPlugins/font-face")(),
