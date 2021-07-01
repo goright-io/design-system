@@ -100,10 +100,6 @@ module.exports = (_, argv) => {
         },
       ],
     },
-    resolve: {
-      modules: [paths.libModules, paths.libSrc],
-      extensions: [".json", ".js", ".jsx"],
-    },
     externals: exts,
     plugins: plugins,
     node: {
