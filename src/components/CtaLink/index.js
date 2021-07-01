@@ -16,12 +16,14 @@ const CtaLink = ({
   arrow = "end",
   ...props
 }) => {
-  const classes =
-    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1";
+  const classes = classnames(
+    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1",
+    className
+  );
 
   return (
     <Text
-      as="a"
+      as={as}
       href={to}
       variant="lgBolder"
       className={classes}
