@@ -15,6 +15,12 @@ const paths = {
 };
 
 module.exports = (_, argv) => {
+  const exts = [
+    nodeExternals({
+      allowlist: /react-multi-carousel/,
+    }),
+  ];
+
   const env = argv.mode;
 
   process.env.BABEL_ENV = env;
@@ -46,14 +52,27 @@ module.exports = (_, argv) => {
       rules: [
         {
           test: /\.css$/i,
-          include: /node_modules/,
-
+          /* Don"t use style-loader if you will impport library into Next.js */
           use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: ["babel-loader"],
+        },
+        {
+          // Apply rule for fonts files
+          test: /\.(woff|woff2|ttf|otf|eot)$/,
+          use: [
+            {
+              // Using file-loader too
+              loader: "file-loader",
+              options: {
+                outputPath: "fonts",
+                publicPath: "fonts",
+              },
+            },
+          ],
         },
         {
           test: /\.(jpe?g|png|gif)$/i,
@@ -85,12 +104,7 @@ module.exports = (_, argv) => {
       modules: [paths.libModules, paths.libSrc],
       extensions: [".json", ".js", ".jsx"],
     },
-    externals: [
-      nodeExternals(),
-      nodeExternals({
-        modulesDir: path.resolve(__dirname, "../node_modules"),
-      }),
-    ],
+    externals: exts,
     plugins: plugins,
     node: {
       fs: "empty",
