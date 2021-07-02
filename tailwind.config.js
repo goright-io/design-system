@@ -27,7 +27,7 @@ const generateHighlights = (theme) => {
       if (typeof colors[key] === "string") {
         return {
           ...acc,
-          [`${prefix}-${key}`]: `linear-gradient(to top, transparent 8px, ${colors[key]} 8px, ${colors[key]} 19px, transparent 19px)`,
+          [`${prefix}-${key}`]: `linear-gradient(to top, transparent 10%, ${colors[key]} 10%, ${colors[key]} 25%, transparent 25%)`,
         };
       }
 
