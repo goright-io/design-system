@@ -180,6 +180,7 @@ const conf = {
   variants: {
     extend: {
       translate: ["group-hover"],
+      background: ["hover"],
     },
   },
   plugins: [
