@@ -44,7 +44,7 @@ const generateHighlights = (theme) => {
 
 const conf = {
   important: true,
-  purge: ["src/**/*.js"],
+  purge: ["src/**/*.{js, jsx, md, mdx}"],
   theme: {
     fontSize: { ...typography.fontSize },
     fontWeight: { ...typography.fontWeight },
