@@ -37,7 +37,7 @@ const responsive = {
   },
 };
 
-const HeadingWthButtons = ({ previous, next, carouselState, ...props }) => {
+const HeadingWithButtons = ({ previous, next, carouselState }) => {
   const { currentSlide, slidesToShow, totalItems } = carouselState;
   const isLeftArrowDisabled = currentSlide === 0;
   const isRightArrowDisabled = currentSlide + slidesToShow >= totalItems;
@@ -70,18 +70,29 @@ const HeadingWthButtons = ({ previous, next, carouselState, ...props }) => {
     </div>
   );
 };
-const Testimonial = ({ testimonials }) => {
+
+HeadingWithButtons.propTypes = {
+  carouselState: PropTypes.shape({
+    currentSlide: PropTypes.number,
+    slidesToShow: PropTypes.any,
+    totalItems: PropTypes.any,
+  }),
+  next: PropTypes.any,
+  previous: PropTypes.any,
+};
+const Testimonial = ({ testimonials, className, ...props }) => {
   return (
     <Carousel
-      className="relative"
+      className={"relative " + className}
       partialVisible
       containerClass="container pt-16 clip-left overflow-visible"
       sliderClass="mt-16"
-      customButtonGroup={<HeadingWthButtons />}
+      customButtonGroup={<HeadingWithButtons />}
       itemClass="h-auto"
       arrows={false}
       responsive={responsive}
       renderButtonGroupOutside
+      {...props}
     >
       {testimonials.map((testimonial) => {
         return (
@@ -96,11 +107,13 @@ const Testimonial = ({ testimonials }) => {
               {testimonial.text}
             </Text>
             <div className="flex items-center mt-auto">
-              <img
-                src={testimonial.avatar}
-                alt={testimonial.name}
-                className="w-12 h-12 mr-3 rounded-full"
-              />
+              {testimonial.avatar && (
+                <img
+                  src={testimonial.avatar}
+                  alt={testimonial.name}
+                  className="w-12 h-12 mr-3 rounded-full"
+                />
+              )}
               <Text variant="xlBolder" as="p">
                 {testimonial.name}
               </Text>
@@ -122,6 +135,7 @@ Testimonial.propTypes = {
       colors: PropTypes.string,
     })
   ),
+  className: PropTypes.string,
 };
 
 export default Testimonial;
