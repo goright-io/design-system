@@ -37,7 +37,7 @@ const Text = ({
     xsbolder: "text-xsBolder font-xsBolder tracking-xsBolder leading-xsBolder",
   };
 
-  const highlightClasses = `bg-highlight-${highlight}`;
+  const highlightClasses = `bg-highlight-${highlight} bg-${variant} bg-no-repeat`;
   return (
     <Component
       className={classnames(
