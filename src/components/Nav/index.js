@@ -7,7 +7,7 @@ import classnames from "classnames";
  *
  * horizontal menu with links
  */
-const Nav = ({ items, linkComponent, className }) => {
+const Nav = ({ items, linkComponent, className, currentPath }) => {
   return (
     <ul
       className={classnames(
@@ -18,7 +18,13 @@ const Nav = ({ items, linkComponent, className }) => {
       {items &&
         items.map((item) => (
           <li key={item.href} className="px-2">
-            <Text variant="2Xl" as={linkComponent || "a"} href={item.href}>
+            <Text
+              variant="2Xl"
+              as={linkComponent || "a"}
+              href={item.href}
+              highlight={currentPath == item.href ? "yellow-100" : undefined}
+              className="hover:bg-highlight-yellow-100"
+            >
               {item.name}
             </Text>
           </li>
@@ -29,12 +35,13 @@ const Nav = ({ items, linkComponent, className }) => {
 
 Nav.propTypes = {
   className: PropTypes.string,
-  // items: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     name: PropTypes.string,
-  //     href: PropTypes.string,
-  //   })
-  // ),
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      href: PropTypes.string,
+    })
+  ),
+  currentPath: PropTypes.string,
   linkComponent: PropTypes.elementType,
 };
 

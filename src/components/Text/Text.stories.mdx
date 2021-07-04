@@ -32,11 +32,12 @@ Any text on the page
   </Story>
    <Story
     name="With Highlight"
-    args={{ highlight: "yellow-100"}}
+    args={{ variant: "6Xl", highlight: "yellow-100"}}
     argTypes={{
       highlight: { control: { type: "select", options: Object.keys(colors) } },
+       variant: { control: { type: "select", options: variants } },
     }}
   >
-    {(args) => <Text  as="span" variant="6Xl" {...args} >{"Figma and React"}</Text>}
+    {(args) => <Text  as="span" {...args} >{"Figma and React"}</Text>}
   </Story>
 </Canvas>

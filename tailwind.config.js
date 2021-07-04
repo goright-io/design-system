@@ -27,7 +27,7 @@ const generateHighlights = (theme) => {
       if (typeof colors[key] === "string") {
         return {
           ...acc,
-          [`${prefix}-${key}`]: `linear-gradient(to top, transparent 8px, ${colors[key]} 8px, ${colors[key]} 19px, transparent 19px)`,
+          [`${prefix}-${key}`]: `linear-gradient(to top, ${colors[key]} 0, ${colors[key]} 11px, transparent 11px)`,
         };
       }
 
@@ -64,6 +64,26 @@ const conf = {
         ...colors,
       },
       backgroundImage: (theme) => generateHighlights(theme),
+      // This values are needed to position highlight according font size.
+      backgroundPosition: {
+        "9Xl": "0 -24px",
+        "8Xl": "0 -16px",
+        "7Xl": "0 -12px",
+        "6Xl": "0 -8px",
+        "5Xl": "0 -6px",
+        "4Xl": "0 -4px",
+        "3Xl": "0 -2px",
+        "2Xl": "0 0",
+        xl: "0 2px",
+        xlBolder: "0 2px",
+        lg: "0 4px",
+        lgBolder: "0 4px",
+        base: "0 4px",
+        sm: "0 6px",
+        smBolder: "0 6px",
+        xs: "0 6px",
+        xsBolder: "0 6px",
+      },
       fontFamily: Object.fromEntries(
         Object.entries(typography.fontFamily).map(([fkey, fval]) => [
           fkey,
@@ -180,6 +200,7 @@ const conf = {
   variants: {
     extend: {
       translate: ["group-hover"],
+      backgroundImage: ["hover"],
     },
   },
   plugins: [
