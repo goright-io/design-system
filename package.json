@@ -30,7 +30,6 @@
     "@storybook/storybook-deployer": "^2.8.8",
     "@storybook/theming": "^6.2.9",
     "@svgr/webpack": "^5.5.0",
-    "@tailwindcss/jit": "^0.1.18",
     "babel-eslint": "^10.1.0",
     "babel-loader": "8.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
