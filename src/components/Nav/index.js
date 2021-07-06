@@ -42,7 +42,7 @@ Nav.propTypes = {
     })
   ),
   currentPath: PropTypes.string,
-  linkComponent: PropTypes.elementType,
+  linkComponent: PropTypes.node,
 };
 
 export default Nav;
