@@ -18,7 +18,7 @@ const Button = ({ href, label, children, size, className, ...props }) => {
       href={href}
       className={classnames(
         size ? sizes[size] : sizes.big,
-        "bg-primary-500 text-light-background-900 inline-flex items-center",
+        "bg-primary-500 text-light-background-900 inline-flex items-center transform motion-safe:hover:scale-110",
         className
       )}
       {...props}
