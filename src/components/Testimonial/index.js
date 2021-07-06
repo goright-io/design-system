@@ -23,12 +23,12 @@ const responsive = {
   desktop: {
     breakpoint: { max: breakpoints["2xl"], min: breakpoints.xl },
     items: 2,
-    paritialVisibilityGutter: 40,
+    paritialVisibilityGutter: 80,
   },
   tablet: {
     breakpoint: { max: breakpoints["xl"], min: breakpoints.md },
     items: 2,
-    paritialVisibilityGutter: 80,
+    paritialVisibilityGutter: 30,
   },
   mobile: {
     breakpoint: { max: breakpoints.md, min: 0 },
@@ -100,7 +100,7 @@ const Testimonial = ({ testimonials, className, ...props }) => {
             key={testimonial.name}
             className={classnames(
               testimonial.colors,
-              "p-10 mr-10 rounded-lg h-full flex flex-col min-w-96 max-w-112"
+              "p-10 mr-10 rounded-lg h-full flex flex-col"
             )}
           >
             <Text variant="xlBolder" as="p" className="mb-6">

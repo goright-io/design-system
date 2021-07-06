@@ -11,3 +11,9 @@ leading-xl
 tracking-5Xl
 tracking-2Xl
 tracking-xl
+bg-6Xl
+bg-5Xl
+bg-4Xl
+bg-3Xl
+bg-2Xl
+bg-Xl
