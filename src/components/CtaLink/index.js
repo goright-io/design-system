@@ -51,7 +51,6 @@ const CtaLink = ({
 };
 
 CtaLink.propTypes = {
-  as: PropTypes.node,
   children: PropTypes.node,
   ref: PropTypes.node,
   to: PropTypes.string,
