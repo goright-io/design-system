@@ -1,4 +1,5 @@
 // const defaultTheme = require("tailwindcss/defaultTheme");
+const resolveConfig = require("tailwindcss/resolveConfig");
 const colors = require("./src/tokens/dist/colors.json");
 const typography = require("./src/tokens/dist/typography.json");
 const defaultTheme = require("tailwindcss/defaultTheme");
@@ -46,8 +47,8 @@ const conf = {
   important: true,
   purge: {
     enabled: true,
-    mode: 'all',
-    content: ["./src/**/*.{js,jsx,md,mdx}"],
+    mode: "all",
+    content: ["./src/**/*.{js,jsx,md,mdx, txt}"],
   },
   theme: {
     fontSize: { ...typography.fontSize },
@@ -195,9 +196,9 @@ const conf = {
           weight: 500,
           display: "swap",
         },
-        {
-          filename: "NeueMontreal Regular ",
-        },
+        // {
+        //   filename: "NeueMontreal Regular ",
+        // },
       ],
     },
   },
