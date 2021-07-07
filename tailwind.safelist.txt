@@ -17,3 +17,5 @@ bg-4Xl
 bg-3Xl
 bg-2Xl
 bg-Xl
+bg-highlight-yellow-100
+bg-highlight-yellow-200

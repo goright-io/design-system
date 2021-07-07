@@ -16,8 +16,8 @@ module.exports = function fontFacePluginFactory() {
               fontStyle: style,
               fontDisplay: display,
               src: [
-                `local("${filename}")`,
-                `url("/${filename}.woff") format("woff")`,
+                // `local("${filename}")`,
+                `url("/fonts/${filename}.woff") format("woff")`,
               ].join(", "),
             },
           });
