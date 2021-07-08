@@ -17,7 +17,6 @@ const CtaLink = ({
   underline = false,
   ...props
 }) => {
-  console.log("🚀 ~ file: index.js ~ line 20 ~ underline", underline);
   const classes = classnames(
     "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:bg-highlight-yellow-100 bg-no-repeat",
     className
