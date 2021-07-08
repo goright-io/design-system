@@ -1,6 +1,6 @@
 {
   "name": "@goright/design-system",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "main": "dist/design-system.js",
   "files": [
     "dist/**"

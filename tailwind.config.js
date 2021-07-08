@@ -44,10 +44,11 @@ const generateHighlights = (theme) => {
 };
 
 const conf = {
-  important: true,
+  mode: "jit",
+
   purge: {
-    enabled: true,
-    mode: "all",
+    // enabled: true,
+    // mode: "all",
     content: ["./src/**/*.{js,jsx,md,mdx, txt}"],
   },
   theme: {

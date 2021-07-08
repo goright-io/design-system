@@ -16,6 +16,9 @@ Call-to-action link with decorative arrow afterwards
   <Story name="Arrow back" args={{ label: "Check tickets"}}>
     {({label}) => <CtaLink to="https://goright.io" arrow="start">{label}</CtaLink>}
   </Story>
+  <Story name="Underline" args={{ label: "Check tickets", underline: true}}>
+    {({label, ...props}) => <CtaLink to="https://goright.io" arrow="start" {...props}>{label}</CtaLink>}
+  </Story>
 </Canvas>
 
 <ArgsTable of={CtaLink} />
