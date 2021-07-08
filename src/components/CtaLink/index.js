@@ -19,7 +19,7 @@ const CtaLink = ({
 }) => {
   console.log("🚀 ~ file: index.js ~ line 20 ~ underline", underline);
   const classes = classnames(
-    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1",
+    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:bg-highlight-yellow-100 bg-no-repeat",
     className
   );
 
@@ -53,6 +53,7 @@ CtaLink.propTypes = {
   to: PropTypes.string,
   className: PropTypes.string,
   arrow: PropTypes.oneOf(["start", "end"]),
+  underline: PropTypes.bool,
 };
 
 export default CtaLink;
