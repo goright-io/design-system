@@ -14,8 +14,10 @@ const CtaLink = ({
   children,
   className,
   arrow = "end",
+  underline = false,
   ...props
 }) => {
+  console.log("🚀 ~ file: index.js ~ line 20 ~ underline", underline);
   const classes = classnames(
     "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1",
     className
@@ -31,19 +33,14 @@ const CtaLink = ({
       {...props}
     >
       {arrow === "start" && (
-        <span className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none">
-          ←
+        <span className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none !no-underline">
+          ←{"\u2004"}
         </span>
       )}
-      <span>
-        {arrow == "start" && "\u2004"}
-
-        {children}
-        {arrow == "end" && "\u2004"}
-      </span>
+      <span className={underline ? "underline" : "no"}>{children}</span>
       {arrow === "end" && (
-        <span className="transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
-          →
+        <span className="no-underline transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
+          {"\u2004"}→
         </span>
       )}
     </Text>
