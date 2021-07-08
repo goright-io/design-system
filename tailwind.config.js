@@ -44,7 +44,7 @@ const generateHighlights = (theme) => {
 };
 
 const conf = {
-  important: true,
+  // important: true,
   purge: {
     enabled: true,
     mode: "all",
