@@ -43,7 +43,7 @@ const HeadingWithButtons = ({ previous, next, carouselState }) => {
   const isRightArrowDisabled = currentSlide + slidesToShow >= totalItems;
 
   return (
-    <div className="absolute top-0 right-0 flex mr-16">
+    <div className="flex justify-center h-8 mt-4 md:mt-0 md:mr-16 md:absolute md:top-0 md:right-0">
       <button
         disabled={isLeftArrowDisabled}
         className={classnames(
@@ -82,46 +82,50 @@ HeadingWithButtons.propTypes = {
 };
 const Testimonial = ({ testimonials, className, ...props }) => {
   return (
-    <Carousel
-      className={"relative " + className}
-      partialVisible
-      containerClass="container pt-16 clip-left overflow-visible"
-      sliderClass="mt-16"
-      customButtonGroup={<HeadingWithButtons />}
-      itemClass="h-auto"
-      arrows={false}
-      responsive={responsive}
-      renderButtonGroupOutside
-      {...props}
-    >
-      {testimonials.map((testimonial) => {
-        return (
-          <div
-            key={testimonial.name}
-            className={classnames(
-              testimonial.colors,
-              "p-10 mr-10 rounded-lg h-full flex flex-col"
-            )}
-          >
-            <Text variant="xlBolder" as="p" className="mb-6">
-              {testimonial.text}
-            </Text>
-            <div className="flex items-center mt-auto">
-              {testimonial.avatar && (
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 mr-3 rounded-full"
-                />
+    <>
+      <div className="absolute top-0 bottom-0 left-0 z-10 hidden w-16 h-full mt-16 opacity-75 container:block bg-gradient-to-r from-white to-transparent" />
+      <Carousel
+        className={"relative " + className ? className : ""}
+        partialVisible
+        containerClass="container pt-20"
+        sliderClass="mt-16"
+        customButtonGroup={<HeadingWithButtons />}
+        itemClass="h-auto"
+        arrows={false}
+        responsive={responsive}
+        renderButtonGroupOutside
+        {...props}
+      >
+        {testimonials.map((testimonial) => {
+          return (
+            <div
+              key={testimonial.name}
+              className={classnames(
+                testimonial.colors,
+                "p-4 md:p-10 md:mr-8 xl:mr-12 rounded-lg h-full flex flex-col"
               )}
-              <Text variant="xlBolder" as="p">
-                {testimonial.name}
+            >
+              <Text variant="xlBolder" as="p" className="mb-6">
+                {testimonial.text}
               </Text>
+              <div className="flex items-center mt-auto">
+                {testimonial.avatar && (
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 mr-3 rounded-full"
+                  />
+                )}
+                <Text variant="xlBolder" as="p">
+                  {testimonial.name}
+                </Text>
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </Carousel>
+          );
+        })}
+      </Carousel>
+      <div className="absolute top-0 bottom-0 right-0 z-10 hidden w-16 h-full mt-16 opacity-75 container:block bg-gradient-to-r to-white from-transparent" />
+    </>
   );
 };
 

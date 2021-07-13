@@ -63,6 +63,7 @@ Nav.propTypes = {
     })
   ),
   currentPath: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default Nav;
