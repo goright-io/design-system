@@ -56,14 +56,14 @@ TODO: add component description
   <Story name="Container Overflow">
     <div className="w-full bg-gray-100 overflow-hidden">
       <div className="relative max-w-4xl mx-auto bg-white">
-        <div className="flex items-start">
+        <div className="flex items-start pb-4">
           <Icon name="Forum32" className="mr-6" />
           <Text variant="6Xl" as="h2">
             People Say
           </Text>
         </div>
-        <div className="relative max-w-4xl mx-auto overflow-x-visible">
-          <div className="-mt-12">
+        <div className="relative max-w-4xl mx-auto">
+          <div className="-mt-16">
             <Testimonial testimonials={testimonials} />
           </div>
         </div>

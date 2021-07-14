@@ -57,6 +57,9 @@ const conf = {
     lineHeight: { ...typography.lineHeight },
     letterSpacing: { ...typography.letterSpacing },
     extend: {
+      screens: {
+        container: "896px",
+      },
       width: {
         150: "150%",
       },
