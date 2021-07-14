@@ -82,50 +82,46 @@ HeadingWithButtons.propTypes = {
 };
 const Testimonial = ({ testimonials, className, ...props }) => {
   return (
-    <>
-      <div className="absolute top-0 bottom-0 left-0 z-10 hidden w-16 h-full mt-16 opacity-75 container:block bg-gradient-to-r from-white to-transparent" />
-      <Carousel
-        className={"relative " + className ? className : ""}
-        partialVisible
-        containerClass="container md:pt-20"
-        sliderClass="mt-16"
-        customButtonGroup={<HeadingWithButtons />}
-        itemClass="h-auto"
-        arrows={false}
-        responsive={responsive}
-        renderButtonGroupOutside
-        {...props}
-      >
-        {testimonials.map((testimonial) => {
-          return (
-            <div
-              key={testimonial.name}
-              className={classnames(
-                testimonial.colors,
-                "p-6 md:p-10 md:mr-8 mr-4 xl:mr-12 rounded-lg h-full flex flex-col"
+    <Carousel
+      className={"relative " + className ? className : ""}
+      partialVisible
+      containerClass="container md:pt-20"
+      sliderClass="mt-16"
+      customButtonGroup={<HeadingWithButtons />}
+      itemClass="h-auto"
+      arrows={false}
+      responsive={responsive}
+      renderButtonGroupOutside
+      {...props}
+    >
+      {testimonials.map((testimonial) => {
+        return (
+          <div
+            key={testimonial.name}
+            className={classnames(
+              testimonial.colors,
+              "p-6 md:p-10 md:mr-8 mr-4 xl:mr-12 rounded-lg h-full flex flex-col"
+            )}
+          >
+            <Text variant="xlBolder" as="p" className="mb-6">
+              {testimonial.text}
+            </Text>
+            <div className="flex items-center mt-auto">
+              {testimonial.avatar && (
+                <img
+                  src={testimonial.avatar}
+                  alt={testimonial.name}
+                  className="w-12 h-12 mr-3 rounded-full"
+                />
               )}
-            >
-              <Text variant="xlBolder" as="p" className="mb-6">
-                {testimonial.text}
+              <Text variant="xlBolder" as="p">
+                {testimonial.name}
               </Text>
-              <div className="flex items-center mt-auto">
-                {testimonial.avatar && (
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-12 h-12 mr-3 rounded-full"
-                  />
-                )}
-                <Text variant="xlBolder" as="p">
-                  {testimonial.name}
-                </Text>
-              </div>
             </div>
-          );
-        })}
-      </Carousel>
-      <div className="absolute top-0 bottom-0 right-0 z-10 hidden w-16 h-full mt-16 opacity-75 container:block bg-gradient-to-r to-white from-transparent" />
-    </>
+          </div>
+        );
+      })}
+    </Carousel>
   );
 };
 
