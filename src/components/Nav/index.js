@@ -12,7 +12,7 @@ import classnames from "classnames";
 const Nav = ({ items, linkComponent, className, currentPath, children }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   return (
-    <nav>
+    <nav className={className}>
       <button
         className="block ml-auto md:hidden"
         onClick={() => setMenuOpen((isOpen) => !isOpen)}
@@ -23,13 +23,14 @@ const Nav = ({ items, linkComponent, className, currentPath, children }) => {
           <Menu24 className="m-6 text-light-on-background-900" />
         )}
       </button>
-      <div className={isMenuOpen ? "flex flex-col" : "hidden md:flex"}>
-        <ul
-          className={classnames(
-            "bg-light-background-900 text-center md:inline-flex flex flex-col md:flex-row justify-between list-none text-light-on-background-900 dark:text-dark-on-background-900",
-            className
-          )}
-        >
+      <div
+        className={
+          isMenuOpen
+            ? "flex flex-col absolute top-full w-full bg-white left-0 right-0 p-20"
+            : "hidden md:flex relative"
+        }
+      >
+        <ul className="flex flex-col justify-between w-full text-center list-none bg-light-background-900 md:inline-flex md:flex-row text-light-on-background-900 dark:text-dark-on-background-900">
           {items &&
             items.map((item) => (
               <li key={item.href} className="px-2 py-6 md:py-0">

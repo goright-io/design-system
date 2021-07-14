@@ -87,7 +87,7 @@ const Testimonial = ({ testimonials, className, ...props }) => {
       <Carousel
         className={"relative " + className ? className : ""}
         partialVisible
-        containerClass="container pt-20"
+        containerClass="container md:pt-20"
         sliderClass="mt-16"
         customButtonGroup={<HeadingWithButtons />}
         itemClass="h-auto"
@@ -102,7 +102,7 @@ const Testimonial = ({ testimonials, className, ...props }) => {
               key={testimonial.name}
               className={classnames(
                 testimonial.colors,
-                "p-4 md:p-10 md:mr-8 xl:mr-12 rounded-lg h-full flex flex-col"
+                "p-6 md:p-10 md:mr-8 mr-4 xl:mr-12 rounded-lg h-full flex flex-col"
               )}
             >
               <Text variant="xlBolder" as="p" className="mb-6">
