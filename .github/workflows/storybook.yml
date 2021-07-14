@@ -50,7 +50,7 @@ jobs:
           
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
 
       - name: Build design tokens
