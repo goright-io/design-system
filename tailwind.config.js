@@ -1,5 +1,5 @@
 // const defaultTheme = require("tailwindcss/defaultTheme");
-const resolveConfig = require("tailwindcss/resolveConfig");
+// const resolveConfig = require("tailwindcss/resolveConfig");
 const colors = require("./src/tokens/dist/colors.json");
 const typography = require("./src/tokens/dist/typography.json");
 const defaultTheme = require("tailwindcss/defaultTheme");
@@ -59,6 +59,9 @@ const conf = {
     extend: {
       screens: {
         container: "896px",
+      },
+      transitionTimingFunction: {
+        "out-back": "cubic-bezier(.2, .8, .2, 1.1)",
       },
       width: {
         150: "150%",

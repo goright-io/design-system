@@ -1,129 +1,141 @@
 import PropTypes from "prop-types";
-import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
 import Text from "../Text";
 import classnames from "classnames";
-import { getBreakpoints } from "../../utils/getTheme";
-const breakpoints = getBreakpoints();
 import { ArrowRight32, ArrowLeft32 } from "@carbon/icons-react";
+import React, { useLayoutEffect, useRef, useState, useCallback } from "react";
+import { Swiper, Scrollbar, Navigation } from "swiper/core";
+import { useDebouncedCallback } from "use-debounce";
 
-/* Testimonial
- *
- * A carousel to display testimonials
- */
+Swiper.use([Scrollbar, Navigation]);
 
-const responsive = {
-  bigdesktop: {
-    breakpoint: { max: 6000, min: breakpoints["2xl"] },
-    items: 2,
-    paritialVisibilityGutter: 20,
-  },
-  desktop: {
-    breakpoint: { max: breakpoints["2xl"], min: breakpoints.xl },
-    items: 2,
-    paritialVisibilityGutter: 80,
-  },
-  tablet: {
-    breakpoint: { max: breakpoints["xl"], min: breakpoints.md },
-    items: 2,
-    paritialVisibilityGutter: 30,
-  },
-  mobile: {
-    breakpoint: { max: breakpoints.md, min: 0 },
-    items: 1,
-    paritialVisibilityGutter: 20,
-  },
-};
-
-const HeadingWithButtons = ({ previous, next, carouselState }) => {
-  const { currentSlide, slidesToShow, totalItems } = carouselState;
-  const isLeftArrowDisabled = currentSlide === 0;
-  const isRightArrowDisabled = currentSlide + slidesToShow >= totalItems;
-
+const TestimonialItem = ({ name, text, avatar, colors }) => {
   return (
-    <div className="flex justify-center h-8 mt-4 md:mt-0 md:mr-16 md:absolute md:top-0 md:right-0">
-      <button
-        disabled={isLeftArrowDisabled}
+    <div className="mr-4 swiper-slide md:mr-8 last:mr-0">
+      <div
         className={classnames(
-          "mr-14",
-          isLeftArrowDisabled
-            ? "text-gray-100"
-            : "text-light-on-background-900 "
+          "select-none w-[280px] sm:w-[380px] p-6 md:p-10 xl:mr-12 rounded-lg h-full flex flex-col",
+          colors
         )}
-        onClick={previous}
       >
-        <ArrowLeft32 />
-      </button>
-      <button
-        disabled={isRightArrowDisabled}
-        className={classnames(
-          isRightArrowDisabled
-            ? "text-gray-100"
-            : "text-light-on-background-900"
-        )}
-        onClick={next}
-      >
-        <ArrowRight32 />
-      </button>
+        <Text variant="xlBolder" as="p" className="mb-6">
+          {text}
+        </Text>
+        <div className="flex items-center mt-auto">
+          {avatar && (
+            <img
+              src={avatar}
+              alt={name}
+              className="w-12 h-12 mr-3 rounded-full"
+            />
+          )}
+          <Text variant="xlBolder" as="p">
+            {name}
+          </Text>
+        </div>
+      </div>
     </div>
   );
 };
 
-HeadingWithButtons.propTypes = {
-  carouselState: PropTypes.shape({
-    currentSlide: PropTypes.number,
-    slidesToShow: PropTypes.any,
-    totalItems: PropTypes.any,
-  }),
-  next: PropTypes.any,
-  previous: PropTypes.any,
+TestimonialItem.propTypes = {
+  avatar: PropTypes.string,
+  colors: PropTypes.string,
+  name: PropTypes.string,
+  text: PropTypes.string,
 };
-const Testimonial = ({ testimonials, className, ...props }) => {
-  return (
-    <Carousel
-      className={"relative " + className ? className : ""}
-      partialVisible
-      containerClass="container md:pt-20"
-      sliderClass="mt-16"
-      customButtonGroup={<HeadingWithButtons />}
-      itemClass="h-auto"
-      arrows={false}
-      responsive={responsive}
-      renderButtonGroupOutside
-      {...props}
-    >
-      {testimonials.map((testimonial) => {
-        return (
-          <div
-            key={testimonial.name}
-            className={classnames(
-              testimonial.colors,
-              "p-6 md:p-10 md:mr-8 mr-4 xl:mr-12 rounded-lg h-full flex flex-col"
-            )}
-          >
-            <Text variant="xlBolder" as="p" className="mb-6">
-              {testimonial.text}
-            </Text>
-            <div className="flex items-center mt-auto">
-              {testimonial.avatar && (
-                <img
-                  src={testimonial.avatar}
-                  alt={testimonial.name}
-                  className="w-12 h-12 mr-3 rounded-full"
-                />
-              )}
-              <Text variant="xlBolder" as="p">
-                {testimonial.name}
-              </Text>
-            </div>
-          </div>
-        );
-      })}
-    </Carousel>
+
+function Testimonial({ testimonials, title }) {
+  const swiperNavigationPrevRef = useRef(null);
+  const swiperNavigationNextRef = useRef(null);
+  const swiperContainerRef = useRef(null);
+
+  const [isPrevButtonDisabled, setPrevButtonDisabled] = useState(false);
+  const [isNextButtonDisabled, setNextButtonDisabled] = useState(false);
+
+  const handleResize = useDebouncedCallback(
+    useCallback((swiper) => {
+      swiper.update();
+    }, []),
+    1000
   );
-};
+
+  useLayoutEffect(() => {
+    const swiper = new Swiper(swiperContainerRef.current, {
+      freeMode: true,
+      freeModeMomentum: false,
+      watchOverflow: true,
+      speed: 600,
+      spaceBetween: 0,
+      slidesPerView: "auto",
+      navigation: {
+        nextEl: swiperNavigationNextRef.current,
+        prevEl: swiperNavigationPrevRef.current,
+      },
+      on: {
+        /* set state of prev/next buttons */
+        slideChange: (swiper) => {
+          const { isBeginning, isEnd } = swiper;
+          setPrevButtonDisabled(isBeginning);
+          setNextButtonDisabled(isEnd);
+        },
+      },
+      breakpointsInverse: true,
+      breakpoints: {
+        1024: {
+          freeMode: false,
+        },
+      },
+    });
+
+    window.addEventListener("resize", () => handleResize(swiper));
+    return () => {
+      window.removeEventListener("resize", () => handleResize(swiper));
+      swiper.destroy();
+    };
+  }, [handleResize, name]);
+
+  const getArrowColor = (isDisabled) =>
+    isDisabled ? "text-gray-100" : "text-light-on-background-900";
+  return (
+    <>
+      <div>
+        <div className="items-center justify-between hidden pb-4 md:flex">
+          <div className="flex items-start">{title}</div>
+          <div className="flex ml-auto">
+            <button
+              ref={swiperNavigationPrevRef}
+              className={classnames(
+                getArrowColor(isPrevButtonDisabled),
+                "mr-12"
+              )}
+            >
+              <ArrowLeft32 />
+            </button>
+            <button
+              ref={swiperNavigationNextRef}
+              className={classnames(
+                getArrowColor(isNextButtonDisabled),
+                "mr-12"
+              )}
+            >
+              <ArrowRight32 />
+            </button>
+          </div>
+        </div>
+
+        <div ref={swiperContainerRef} className="swiper-container">
+          <div
+            className="flex transition-transform swiper-wrapper ease-out-back" // do not remve swiper-wrapper
+          >
+            {testimonials.map((item, i) => {
+              return <TestimonialItem key={item.name + i} {...item} />;
+            })}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
 
 Testimonial.propTypes = {
   testimonials: PropTypes.arrayOf(
@@ -135,7 +147,7 @@ Testimonial.propTypes = {
       colors: PropTypes.string,
     })
   ),
-  className: PropTypes.string,
+  title: PropTypes.node,
 };
 
 export default Testimonial;
