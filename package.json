@@ -63,13 +63,14 @@
     "prop-types": "^15.7.2",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "react-multi-carousel": "^2.6.3",
     "swiper": "^6.7.5",
     "tailwindcss": "^2.1.2",
     "use-debounce": "^7.0.0"
   },
   "peerDependencies": {
     "@carbon/icons-react": "^10.32.0",
-    "@tailwindcss/typography": "^0.4.1"
+    "@tailwindcss/typography": "^0.4.1",
+    "swiper": "^6.7.5",
+    "use-debounce": "^7.0.0"
   }
 }
