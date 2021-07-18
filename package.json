@@ -70,6 +70,6 @@
   "peerDependencies": {
     "@carbon/icons-react": "^10.32.0",
     "@tailwindcss/typography": "^0.4.1",
-    "swiper": "^6.7.5",
+    "swiper": "^6.7.5"
   }
 }

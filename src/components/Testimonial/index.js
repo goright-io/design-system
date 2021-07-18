@@ -92,7 +92,7 @@ function Testimonial({ testimonials, title }) {
       window.removeEventListener("resize", () => handleResize(swiper));
       swiper.destroy();
     };
-  }, [handleResize, name]);
+  }, [handleResize]);
 
   const getArrowColor = (isDisabled) =>
     isDisabled ? "text-gray-100" : "text-light-on-background-900";
