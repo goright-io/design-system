@@ -10,10 +10,10 @@ Swiper.use([Scrollbar, Navigation]);
 
 const TestimonialItem = ({ name, text, avatar, colors }) => {
   return (
-    <div className="mr-4 swiper-slide md:mr-8 last:mr-0">
+    <div className="mr-4 transition duration-300 ease-out transform swiper-slide md:mr-8 last:mr-0 motion-safe:hover:scale-105">
       <div
         className={classnames(
-          "select-none w-[280px] sm:w-[380px] p-6 md:p-10 xl:mr-12 rounded-lg h-full flex flex-col",
+          "select-none w-[280px] sm:w-[380px] p-6 md:p-10 rounded-lg h-full flex flex-col",
           colors
         )}
       >
@@ -99,7 +99,7 @@ function Testimonial({ testimonials, title }) {
   return (
     <>
       <div>
-        <div className="items-center justify-between hidden pb-4 md:flex">
+        <div className="items-baseline justify-between hidden pb-4 md:flex">
           <div className="flex items-start">{title}</div>
           <div className="flex ml-auto">
             <button
@@ -123,7 +123,7 @@ function Testimonial({ testimonials, title }) {
           </div>
         </div>
 
-        <div ref={swiperContainerRef} className="swiper-container">
+        <div ref={swiperContainerRef} className="mt-16 swiper-container">
           <div
             className="flex transition-transform swiper-wrapper ease-out-back" // do not remve swiper-wrapper
           >
