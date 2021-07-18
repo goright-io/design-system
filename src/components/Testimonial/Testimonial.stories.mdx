@@ -47,28 +47,27 @@ export const testimonials = [
 
 ## Testimonial
 
-TODO: add component description
+A carousel/slider to display testimonials
+
+export const TestimonialTitle = (
+    <>
+      <Icon name="Forum32" className="mr-6" />
+      <Text variant="6Xl" as="h2">
+        People Say
+      </Text>
+    </>
+  );
 
 <Canvas>
   <Story name="Default">
-    <Testimonial testimonials={testimonials} />
+    <Testimonial testimonials={testimonials} title={TestimonialTitle} />
   </Story>
   <Story name="Container Overflow">
     <div className="w-full bg-gray-100 overflow-hidden">
       <div className="relative max-w-4xl mx-auto bg-white">
-        <div className="flex items-start pb-4">
-          <Icon name="Forum32" className="mr-6" />
-          <Text variant="6Xl" as="h2">
-            People Say
-          </Text>
-        </div>
-        <div className="relative max-w-4xl mx-auto">
-          <div className="-mt-16">
-            <Testimonial testimonials={testimonials} />
-          </div>
+          <Testimonial testimonials={testimonials}  title={TestimonialTitle}/>
         </div>
       </div>
-    </div>
   </Story>
 </Canvas>
 

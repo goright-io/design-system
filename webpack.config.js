@@ -17,7 +17,7 @@ const paths = {
 module.exports = (_, argv) => {
   const exts = [
     nodeExternals({
-      allowlist: /react-multi-carousel/,
+      allowlist: /debounce/,
     }),
   ];
 
@@ -102,6 +102,7 @@ module.exports = (_, argv) => {
     },
     externals: exts,
     plugins: plugins,
+    mode: "production",
     node: {
       fs: "empty",
     },
