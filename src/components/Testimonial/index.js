@@ -99,9 +99,9 @@ function Testimonial({ testimonials, title }) {
   return (
     <>
       <div>
-        <div className="items-baseline justify-between hidden pb-4 md:flex">
+        <div className="flex items-baseline justify-between pb-4">
           <div className="flex items-start">{title}</div>
-          <div className="flex ml-auto">
+          <div className="hidden ml-auto md:flex">
             <button
               ref={swiperNavigationPrevRef}
               className={classnames(
