@@ -16,8 +16,6 @@ jobs:
     outputs:
       releases: ${{ steps.release-indicator.outputs.releases }}
     steps:
-    - name: Save PR number
-      run: echo ${{ github.event.number }} > ./pr-nb
     
     - name: Checkout
       uses: actions/checkout@v2
@@ -67,7 +65,7 @@ jobs:
           const releaseType = process.env.RELEASE_TYPE;
           const owner = context.repo.owner;
           const repo = context.repo.repo;
-          const issue_number = Number(fs.readFileSync('./pr-nb'));
+          const issue_number = Number(${{ github.event.number }});
           const comments = await github.issues.listComments({
             owner,
             repo,
