@@ -16,7 +16,9 @@ jobs:
     outputs:
       releases: ${{ steps.release-indicator.outputs.releases }}
     steps:
-
+    - name: Save PR number
+      run: echo ${{ github.event.number }} > ./pr-nb
+    
     - name: Checkout
       uses: actions/checkout@v2
       with:
