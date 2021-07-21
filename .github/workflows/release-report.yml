@@ -53,47 +53,47 @@ jobs:
         echo "::set-output name=type::${RELEASE_TYPE}"
         echo "::set-output name=notes::${RELEASE_NOTES}"
 
-      - name: 'release indicator - comment pr'
-        uses: actions/github-script@v4.0.2
-        env:
-          RELEASE_TYPE: ${{steps.release-indicator.outputs.type}}
-          RELEASE_NOTES: ${{steps.release-indicator.outputs.notes}}
-        with:
-          script: |
-            const fs = require('fs');
-            const PR_COMMENT_TITLE = '## :rocket: Release indicator\n\n';
-            const releaseType = process.env.RELEASE_TYPE;
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            const issue_number = Number(fs.readFileSync('./pr-nb'));
-            const comments = await github.issues.listComments({
+    - name: 'release indicator - comment pr'
+      uses: actions/github-script@v4.0.2
+      env:
+        RELEASE_TYPE: ${{steps.release-indicator.outputs.type}}
+        RELEASE_NOTES: ${{steps.release-indicator.outputs.notes}}
+      with:
+        script: |
+          const fs = require('fs');
+          const PR_COMMENT_TITLE = '## :rocket: Release indicator\n\n';
+          const releaseType = process.env.RELEASE_TYPE;
+          const owner = context.repo.owner;
+          const repo = context.repo.repo;
+          const issue_number = Number(fs.readFileSync('./pr-nb'));
+          const comments = await github.issues.listComments({
+            owner,
+            repo,
+            issue_number,
+          });
+          const releaseIndicatorComment = comments.data.find(comment =>
+            comment.body.startsWith(PR_COMMENT_TITLE),
+          );
+          function getPRComment() {
+            if (!releaseType) {
+              return `Recommended bump for this PR : **\`NO\`** release
+          There are no relevant changes, so no new version is released.`;
+            }
+            return `Recommended bump for this PR : **\`${releaseType.toUpperCase()}\`** release
+          ${process.env.RELEASE_NOTES}`;
+          }
+          const body = PR_COMMENT_TITLE + getPRComment("${{steps.release-indicator.outputs.type}}");
+          if (releaseIndicatorComment) {
+            await github.issues.updateComment({
               owner,
               repo,
-              issue_number,
+              body,
+              comment_id: releaseIndicatorComment.id,
             });
-            const releaseIndicatorComment = comments.data.find(comment =>
-              comment.body.startsWith(PR_COMMENT_TITLE),
-            );
-            function getPRComment() {
-              if (!releaseType) {
-                return `Recommended bump for this PR : **\`NO\`** release
-            There are no relevant changes, so no new version is released.`;
-              }
-              return `Recommended bump for this PR : **\`${releaseType.toUpperCase()}\`** release
-            ${process.env.RELEASE_NOTES}`;
-            }
-            const body = PR_COMMENT_TITLE + getPRComment("${{steps.release-indicator.outputs.type}}");
-            if (releaseIndicatorComment) {
-              await github.issues.updateComment({
-                owner,
-                repo,
-                body,
-                comment_id: releaseIndicatorComment.id,
-              });
-            } else {
-              await github.issues.createComment({ owner, repo, issue_number, body });
-            }
-        
+          } else {
+            await github.issues.createComment({ owner, repo, issue_number, body });
+          }
+      
         
     # - name: 'release indicator - comment pr'
     #   uses: actions/github-script@v3
