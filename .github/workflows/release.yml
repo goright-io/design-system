@@ -30,7 +30,7 @@ jobs:
             
       - name: 'install dependencies'
         if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: Release
         env:
