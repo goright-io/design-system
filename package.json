@@ -1,6 +1,6 @@
 {
   "name": "@goright/design-system",
-  "version": "0.0.24",
+  "version": "0.0.0-development",
   "main": "dist/design-system.js",
   "files": [
     "dist/**"
@@ -17,7 +17,8 @@
     "tokens": "style-dictionary build --config ./src/tokens/config.js",
     "test": "yarn creevey",
     "test:update": "yarn creevey --update",
-    "test:ui": "yarn creevey --ui"
+    "test:ui": "yarn creevey --ui",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -49,6 +50,7 @@
     "postcss": "^8.2.15",
     "postcss-loader": "^4.2.0",
     "prettier": "^2.2.1",
+    "semantic-release": "^17.4.4",
     "storybook-addon-designs": "^5.4.5",
     "style-dictionary": "^2.10.3",
     "url-loader": "^0.6.2",
@@ -71,5 +73,15 @@
     "@carbon/icons-react": "^10.32.0",
     "@tailwindcss/typography": "^0.4.1",
     "swiper": "^6.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goright-io/design-system.git"
+  },
+  "release": {
+    "branches": [
+      "main",
+      "semantic-release"
+    ]
   }
 }
