@@ -53,6 +53,7 @@ const Text = ({
 };
 
 Text.propTypes = {
+  as: PropTypes.any,
   children: PropTypes.node,
   variant: PropTypes.string,
   className: PropTypes.string,

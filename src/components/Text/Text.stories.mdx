@@ -18,7 +18,7 @@ Any text on the page
     name="Default"
   >
   <div className="flex flex-col">
-  {variants.map(variant => <Text variant={variant}>{placeholder}</Text>)}
+  {variants.map(variant => <Text key={variant} variant={variant}>{placeholder}</Text>)}
   </div>
    </Story>
    <Story
