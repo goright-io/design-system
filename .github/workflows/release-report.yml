@@ -42,6 +42,8 @@ jobs:
       id: release-indicator
       env:
         GITHUB_HEAD_REF: ${{ github.event.workflow_run.head_branch }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: |
         GITHUB_REF="${GITHUB_HEAD_REF}"
         yarn -s semantic-release --dry-run --no-ci -b "${GITHUB_HEAD_REF}" | tee semantic.log
