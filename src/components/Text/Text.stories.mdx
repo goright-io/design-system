@@ -25,7 +25,7 @@ Any text on the page
     name="With As Prop"
     args={{ variant: "base", as: "h2"}}
     argTypes={{
-      variant: { control: { type: "select", options: variants } },
+      variant: { options: variants  },
     }}
   >
     {(args) => <Text  {...args} >{placeholder}</Text>}
@@ -34,8 +34,8 @@ Any text on the page
     name="With Highlight"
     args={{ variant: "6Xl", highlight: "yellow-100"}}
     argTypes={{
-      highlight: { control: { type: "select", options: Object.keys(colors) } },
-       variant: { control: { type: "select", options: variants } },
+      highlight: {  options: Object.keys(colors)  },
+       variant:  { options: variants  },
     }}
   >
     {(args) => <Text  as="span" {...args} >{"Figma and React"}</Text>}

@@ -14,7 +14,7 @@ Button component provides interfaces for all types of the buttons. Different typ
     name="Default"
     args={{ label: "Button", size: "small"}}
     argTypes={{
-      size: { control: { type: "select", options: ["small", "big"] } },
+      size: { options: ["small", "big"] },
     }}
   >
     {(args) => <Button {...args} />}
@@ -35,7 +35,7 @@ Button component provides interfaces for all types of the buttons. Different typ
     name="With Icon"
     args={{ size: "small"}}
     argTypes={{
-      size: { control: { type: "select", options: ["small", "big"] } },
+      size: { options: ["small", "big"]  },
     }}
   >
     {(args) => <Button  {...args} >Send<ChevronRight24 className="ml-6"/></Button>}
@@ -44,7 +44,7 @@ Button component provides interfaces for all types of the buttons. Different typ
     name="As Link"
     args={{ label: "Button", href: "https://www.varya.me"}}
     argTypes={{
-      size: { control: { type: "select", options: ["small", "big"] } },
+      size: { options: ["small", "big"]  },
     }}
   >
     {(args) => <Button  {...args} >Send<ChevronRight24 className="ml-6"/></Button>}
