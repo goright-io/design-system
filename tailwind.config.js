@@ -1,5 +1,3 @@
-// const defaultTheme = require("tailwindcss/defaultTheme");
-// const resolveConfig = require("tailwindcss/resolveConfig");
 const colors = require("./src/tokens/dist/colors.json");
 const typography = require("./src/tokens/dist/typography.json");
 const defaultTheme = require("tailwindcss/defaultTheme");
@@ -49,6 +47,7 @@ const conf = {
   purge: {
     // enabled: true,
     // mode: "all",
+    safelist: require("./tailwind.safelist"),
     content: ["./src/**/*.{js,jsx,md,mdx, txt}"],
   },
   theme: {
