@@ -1,44 +1,13 @@
 {
   "branches": [
-    "main",
-    "semantic-release"
+    "main"
   ],
   "analyzeCommits": {
-    "preset": "conventionalcommits",
-    "releaseRules": [
-      {
-        "type": "docs",
-        "release": "patch"
-      },
-      {
-        "type": "perf",
-        "release": "patch"
-      },
-      {
-        "type": "test",
-        "release": "patch"
-      },
-      {
-        "type": "chore",
-        "release": "patch"
-      },
-      {
-        "type": "refactor",
-        "release": "patch"
-      }
-    ]
+    "preset": "conventionalcommits"
   },
   "generateNotes": {
     "path": "@semantic-release/release-notes-generator",
-    "preset": "conventionalcommits",
-    "presetConfig": {
-      "types": [
-        {
-          "tag": "docs",
-          "hidden": false
-        }
-      ]
-    }
+    "preset": "conventionalcommits"
   },
   "plugins": [
     "@semantic-release/commit-analyzer",
@@ -52,13 +21,7 @@
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
-    "@semantic-release/npm",
-    [
-      "@semantic-release/exec",
-      {
-        "verifyReleaseCmd": "echo ${nextRelease.version} > .VERSION"
-      }
-    ]
+    "@semantic-release/npm"
   ],
   "tagFormat": "${version}"
 }
