@@ -1,6 +1,6 @@
 {
   "name": "@goright/design-system",
-  "version": "0.0.24",
+  "version": "0.0.0-development",
   "main": "dist/design-system.js",
   "files": [
     "dist/**"
@@ -17,13 +17,16 @@
     "tokens": "style-dictionary build --config ./src/tokens/config.js",
     "test": "yarn creevey",
     "test:update": "yarn creevey --update",
-    "test:ui": "yarn creevey --ui"
+    "test:ui": "yarn creevey --ui",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13",
     "@mariusmarais/tailwind-cascade": "^0.0.4",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "6.2.9",
@@ -35,6 +38,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "conventional-changelog-conventionalcommits": "^4.6.0",
     "copy-webpack-plugin": "^4.6.0",
     "creevey": "^0.7.27",
     "css-loader": "^0.28.11",
@@ -49,6 +53,7 @@
     "postcss": "^8.2.15",
     "postcss-loader": "^4.2.0",
     "prettier": "^2.2.1",
+    "semantic-release": "^17.4.4",
     "storybook-addon-designs": "^5.4.5",
     "style-dictionary": "^2.10.3",
     "url-loader": "^0.6.2",
@@ -71,5 +76,9 @@
     "@carbon/icons-react": "^10.32.0",
     "@tailwindcss/typography": "^0.4.1",
     "swiper": "^6.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goright-io/design-system.git"
   }
 }
