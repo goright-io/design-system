@@ -32,13 +32,21 @@ const CtaLink = ({
       {...props}
     >
       {arrow === "start" && (
-        <span className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none !no-underline">
+        <span
+          key="start"
+          className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none !no-underline"
+        >
           ←{"\u2004"}
         </span>
       )}
-      <span className={underline ? "underline" : "no"}>{children}</span>
+      <span key="body" className={underline ? "underline" : "no"}>
+        {children}
+      </span>
       {arrow === "end" && (
-        <span className="no-underline transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
+        <span
+          key="end"
+          className="no-underline transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none"
+        >
           {"\u2004"}→
         </span>
       )}

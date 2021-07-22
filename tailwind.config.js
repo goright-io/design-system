@@ -1,9 +1,11 @@
-// const defaultTheme = require("tailwindcss/defaultTheme");
-// const resolveConfig = require("tailwindcss/resolveConfig");
+// import fastCartesian from "fast-cartesian";
+const resolveConfig = require("tailwindcss/resolveConfig");
+
 const colors = require("./src/tokens/dist/colors.json");
 const typography = require("./src/tokens/dist/typography.json");
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require("tailwindcss/plugin");
+const fastCartesian = require("fast-cartesian");
 
 const typographyProps = [
   "fontSize",
@@ -16,6 +18,7 @@ const typographyProps = [
   "textCase",
 ];
 
+// TODO: look into tailwind addComponents via plugin
 const generateTypography = (variant, theme) => {
   return typographyProps.reduce((acc, prop) => {
     return { ...acc, [prop]: theme(`${prop}.${variant}`) };
@@ -43,12 +46,18 @@ const generateHighlights = (theme) => {
   return generateColors(theme("colors"), "highlight");
 };
 
+// Takes array with n arrays of strings. returns generated combinations
+const generateSafelistEntries = (...arrays) => {
+  return fastCartesian(arrays).map((arr) => arr.join(""));
+};
+
 const conf = {
   mode: "jit",
 
   purge: {
     // enabled: true,
     // mode: "all",
+    safelist: [...require("./tailwind.safelist")],
     content: ["./src/**/*.{js,jsx,md,mdx, txt}"],
   },
   theme: {
@@ -229,5 +238,39 @@ const conf = {
     }),
   ],
 };
+
+const variants = Object.keys(typography.fontSize); // get all variant names from one of the tokens
+
+// Generate safelist dynamically and add to config
+
+const fullTheme = resolveConfig(conf).theme;
+conf.purge.safelist = [
+  // load custom classes from file
+  ...conf.purge.safelist,
+  // generate classnames for responsive typography
+  ...generateSafelistEntries(
+    Object.keys(fullTheme.screens),
+    [":"],
+    ["text", "font", "tracking", "leading"],
+    ["-"],
+    variants
+  ),
+  // generate classnames for "bg-highlight-*" classes
+  ...generateSafelistEntries(
+    ["bg-highlight-"],
+    ["primary", "yellow", "red", "green", "pink"], // not all the colors because unikely to be used
+    ["-"],
+    ["50", "100", "200"]
+  ),
+  // generate classnames for responsive variants
+  ...generateSafelistEntries(
+    Object.keys(fullTheme.screens),
+    [":"],
+    ["bg-highlight-"],
+    ["primary", "yellow", "red", "green", "pink"], // not all the colors because unikely to be used
+    ["-"],
+    ["50", "100", "200"]
+  ),
+];
 
 module.exports = conf;

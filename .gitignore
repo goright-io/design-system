@@ -4,3 +4,4 @@ tests/report
 !tests/report/README.md
 dist
 storybook-static
+.env

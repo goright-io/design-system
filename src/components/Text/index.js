@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import classnames from "classnames";
-import { getColors } from "../../utils/getTheme";
+import { getColors, getBreakpoints } from "../../utils/getTheme";
 
 /* Text
  *
@@ -13,6 +13,7 @@ const Text = ({
   as: Component = "p",
   className,
   highlight,
+  responsive,
   ...props
 }) => {
   const variants = {
@@ -38,11 +39,25 @@ const Text = ({
   };
 
   const highlightClasses = `bg-highlight-${highlight} bg-${variant} bg-no-repeat`;
+  const responsiveClasses = responsive
+    ? Object.entries(responsive)
+        .map(
+          ([bp, variant]) =>
+            variant &&
+            variants[variant.toLowerCase()]
+              .split(" ")
+              .map((v) => bp + ":" + v)
+              .join(" ")
+        )
+        .join(" ")
+    : "";
+
   return (
     <Component
       className={classnames(
         variants[variant.toLowerCase()],
         highlight ? highlightClasses : "",
+        responsiveClasses,
         className
       )}
       {...props}
@@ -52,9 +67,19 @@ const Text = ({
   );
 };
 
+const breakpoints = getBreakpoints();
+const responsivePropShape = Object.keys(breakpoints).reduce(
+  (obj, bp) => ({ ...obj, [bp]: PropTypes.string }),
+  {}
+);
 Text.propTypes = {
+  as: PropTypes.any,
   children: PropTypes.node,
   variant: PropTypes.string,
+  responsive: PropTypes.shape(
+    /** Dynamically load all breakpoints from config. Default breakpoints names are: sm, md, lg, xl, 2xl */
+    responsivePropShape
+  ),
   className: PropTypes.string,
   highlight: PropTypes.oneOf(Object.keys(getColors())),
 };

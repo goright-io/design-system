@@ -30,3 +30,8 @@ npx seantic-release-cli setup
 
 - For CI, choose option __Other (prints tokens)__
 - Copy tokens into local .env file, and load them locally
+
+
+RElease via Github actions
+
+- To skip CI jobs, add to commit message keyword [skip-ci]

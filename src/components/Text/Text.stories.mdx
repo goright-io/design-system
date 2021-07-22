@@ -1,5 +1,5 @@
 
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import theme, {getColors} from "../../utils/getTheme"
 import Text from ".";
 
@@ -18,14 +18,14 @@ Any text on the page
     name="Default"
   >
   <div className="flex flex-col">
-  {variants.map(variant => <Text variant={variant}>{placeholder}</Text>)}
+  {variants.map(variant => <Text key={variant} variant={variant}>{placeholder}</Text>)}
   </div>
    </Story>
    <Story
     name="With As Prop"
     args={{ variant: "base", as: "h2"}}
     argTypes={{
-      variant: { control: { type: "select", options: variants } },
+      variant: { options: variants, control: {type: "select"}   },
     }}
   >
     {(args) => <Text  {...args} >{placeholder}</Text>}
@@ -34,10 +34,24 @@ Any text on the page
     name="With Highlight"
     args={{ variant: "6Xl", highlight: "yellow-100"}}
     argTypes={{
-      highlight: { control: { type: "select", options: Object.keys(colors) } },
-       variant: { control: { type: "select", options: variants } },
+      highlight: {  options: Object.keys(colors), control: {type: "select"}   },
+       variant:  { options: variants, control: {type: "select"}  },
     }}
   >
     {(args) => <Text  as="span" {...args} >{"Figma and React"}</Text>}
   </Story>
+   <Story name="Responsive"
+    args={{ variant: "6Xl"}}
+    argTypes={{
+       variant:  { options: variants, control: {type: "select"}  },
+       md:  { options: variants, control: {type: "select"}  },
+       lg:  { options: variants, control: {type: "select"}  },
+       xl:  { options: variants, control: {type: "select"}  },
+       
+    }}>
+    {({md, lg, xl, ...args}) => <Text variant="3Xl" as="span"  responsive={{md: md, "xl": xl, lg: lg}}{...args}>{"Figma and React"}</Text>}
+  </Story>
 </Canvas>
+
+<ArgsTable of={Text} />
+
