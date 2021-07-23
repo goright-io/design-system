@@ -1,3 +1,11 @@
+### [1.0.1](https://github.com/goright-io/design-system/compare/1.0.0...1.0.1) (2021-07-23)
+
+
+### Bug Fixes
+
+* **Tailwind config:** add bg-{variant} classes to safelist ([80d2cc2](https://github.com/goright-io/design-system/commit/80d2cc2f709a13fd5ea12f2eaddcd339e99d7428))
+* **Timetable:** respoinsive styles improvement ([ee00ac0](https://github.com/goright-io/design-system/commit/ee00ac00b8e83eeec392da9410423e21070972c7))
+
 ## 1.0.0 (2021-07-22)
 
 
