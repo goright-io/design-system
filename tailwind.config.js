@@ -239,17 +239,17 @@ const conf = {
   ],
 };
 
-const variants = Object.keys(typography.fontSize); // get all variant names from one of the tokens
-
 // Generate safelist dynamically and add to config
-
 const fullTheme = resolveConfig(conf).theme;
+const variants = Object.keys(typography.fontSize); // get all variant names from one of the tokens
+const screens = Object.keys(fullTheme.screens);
+
 conf.purge.safelist = [
   // load custom classes from file
   ...conf.purge.safelist,
   // generate classnames for responsive typography
   ...generateSafelistEntries(
-    Object.keys(fullTheme.screens),
+    screens,
     [":"],
     ["text", "font", "tracking", "leading"],
     ["-"],
@@ -262,9 +262,13 @@ conf.purge.safelist = [
     ["-"],
     ["50", "100", "200"]
   ),
+  // generate classnames for "bg-{variant}" classes
+  ...generateSafelistEntries(["bg-"], variants),
+  // generate classnames for "bg-{variant}" responsive classes
+  ...generateSafelistEntries(screens, [":"], ["bg-"], variants),
   // generate classnames for responsive variants
   ...generateSafelistEntries(
-    Object.keys(fullTheme.screens),
+    screens,
     [":"],
     ["bg-highlight-"],
     ["primary", "yellow", "red", "green", "pink"], // not all the colors because unikely to be used
