@@ -19,7 +19,12 @@ const Timetable = ({ data, header, className }) => {
         )}
       >
         {header && (
-          <Text as="caption" variant="4Xl" className="mb-5 text-left">
+          <Text
+            as="caption"
+            variant="2Xl"
+            responsive={{ md: "4Xl" }}
+            className="mb-2 text-left md:mb-5"
+          >
             {header}
           </Text>
         )}
@@ -27,24 +32,33 @@ const Timetable = ({ data, header, className }) => {
           {data.map((row, i) => (
             <tr
               key={row.name + i}
-              className="flex py-6 border-b-2 border-light-on-background-900"
+              className="flex py-3 border-b-2 md:py-6 border-light-on-background-900"
             >
-              <td className="px-4 text-left w-30 sm:w-64 ">
+              <td className="px-2 text-left sm:px-4 w-30 sm:w-64 ">
                 <Text
                   as="span"
-                  variant="smBolder"
+                  variant="xsBolder"
+                  responsive={{ sm: "smBolder" }}
                   className={`${row.color} text-light-on-background-50 p-1 sm:whitespace-nowrap`}
                 >
                   {row.time}
                 </Text>
               </td>
-              <td className="w-1/2 px-4 overflow-hidden text-left overflow-ellipsis">
-                <Text as="span" variant="xlBolder">
+              <td className="w-1/2 px-2 overflow-hidden text-left sm:px-4 overflow-ellipsis">
+                <Text
+                  as="span"
+                  responsive={{ sm: "lgBolder", md: "xlBolder" }}
+                  variant="baseBolder"
+                >
                   {row.name}
                 </Text>
               </td>
-              <td className="w-1/2 px-4 overflow-hidden text-left overflow-ellipsis">
-                <Text as="span" variant="xlBolder">
+              <td className="w-1/2 px-2 overflow-hidden text-left sm:px-4 overflow-ellipsis">
+                <Text
+                  as="span"
+                  responsive={{ sm: "lgBolder", md: "xlBolder" }}
+                  variant="baseBolder"
+                >
                   {row.description}
                 </Text>
               </td>
