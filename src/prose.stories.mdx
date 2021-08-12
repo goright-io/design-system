@@ -1,20 +1,17 @@
-import { Meta,  Story, Canvas } from "@storybook/addon-docs/blocks";
-import MarkdownSample from "./markdownSample.mdx"
+import { Meta, Canvas } from "@storybook/addon-docs";
+import MarkdownSample from "./markdownSample.mdx";
 import { MDXProvider } from "@mdx-js/react";
 
 <Meta title="Typography with Tailwind plugin" />
-
 
 ## Typography with Tailwind Typography plugin
 
 With Tailwind typography, all text wrapped with `.prose` class, will get custom styles, predefined in config. Below is sample text and styling.
 
-
 <Canvas>
   <div className="px-4 mx-auto my-8 prose text-justify">
     <MDXProvider>
-      <MarkdownSample/>
+      <MarkdownSample />
     </MDXProvider>
   </div>
 </Canvas>
-

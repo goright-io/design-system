@@ -1,5 +1,4 @@
-
-import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 import CtaLink from ".";
 
@@ -10,14 +9,34 @@ import CtaLink from ".";
 Call-to-action link with decorative arrow afterwards
 
 <Canvas>
-  <Story name="Default" args={{ label: "Check tickets"}}>
-    {({label}) => <CtaLink to="https://goright.io">{label}</CtaLink>}
+  <Story
+    name="Default"
+    args={{ label: "Check tickets" }}
+    parameters={{ design: { disable: true } }}
+  >
+    {({ label }) => <CtaLink to="https://goright.io">{label}</CtaLink>}
   </Story>
-  <Story name="Arrow back" args={{ label: "Check tickets"}}>
-    {({label}) => <CtaLink to="https://goright.io" arrow="start">{label}</CtaLink>}
+  <Story
+    name="Arrow back"
+    args={{ label: "Check tickets" }}
+    parameters={{ design: { disable: true } }}
+  >
+    {({ label }) => (
+      <CtaLink to="https://goright.io" arrow="start">
+        {label}
+      </CtaLink>
+    )}
   </Story>
-  <Story name="Underline" args={{ label: "Check tickets", underline: true}}>
-    {({label, ...props}) => <CtaLink to="https://goright.io" arrow="start" {...props}>{label}</CtaLink>}
+  <Story
+    name="Underline"
+    args={{ label: "Check tickets", underline: true }}
+    parameters={{ design: { disable: true } }}
+  >
+    {({ label, ...props }) => (
+      <CtaLink to="https://goright.io" arrow="start" {...props}>
+        {label}
+      </CtaLink>
+    )}
   </Story>
 </Canvas>
 

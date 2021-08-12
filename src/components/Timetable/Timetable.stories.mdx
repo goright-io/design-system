@@ -1,29 +1,71 @@
-
-import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 import Timetable from ".";
 
 <Meta title="Components/Timetable" />
 
 export const data = [
-  {time: "9.00 am – 9:30", name: "Introduction", description: "What are design systems", color: "bg-accent-red"},
-  {time: "9.00 am – 9:30", name: "Introduction", description: "Design & code automatic sync", color: "bg-accent-red"},
-  {time: "9.00 am – 9:30", name: "Design and process", description: "UI inventory and scoping", color: "bg-accent-purple"},
-  {time: "9.00 am – 9:30", name: "Design and process", description: "Structure of Figma library", color: "bg-accent-purple"},
-  {time: "9.00 am – 9:30", name: "Design and process", description: "Structure of Figma library", color: "bg-accent-turqoise"},
-  {time: "9.00 am – 9:30", name: "Design and process", description: "Structure of Figma library", color: "bg-accent-turqoise"},
-  {time: "9.00 am – 9:30", name: "Design and process", description: "Structure of Figma library", color: "bg-accent-blue"},
-  {time: "9.00 am – 9:30", name: "Design and process", description: "Structure of Figma library", color: "bg-accent-blue"},
-]
-
+  {
+    time: "9.00 am – 9:30",
+    name: "Introduction",
+    description: "What are design systems",
+    color: "bg-accent-red",
+  },
+  {
+    time: "9.00 am – 9:30",
+    name: "Introduction",
+    description: "Design & code automatic sync",
+    color: "bg-accent-red",
+  },
+  {
+    time: "9.00 am – 9:30",
+    name: "Design and process",
+    description: "UI inventory and scoping",
+    color: "bg-accent-purple",
+  },
+  {
+    time: "9.00 am – 9:30",
+    name: "Design and process",
+    description: "Structure of Figma library",
+    color: "bg-accent-purple",
+  },
+  {
+    time: "9.00 am – 9:30",
+    name: "Design and process",
+    description: "Structure of Figma library",
+    color: "bg-accent-turqoise",
+  },
+  {
+    time: "9.00 am – 9:30",
+    name: "Design and process",
+    description: "Structure of Figma library",
+    color: "bg-accent-turqoise",
+  },
+  {
+    time: "9.00 am – 9:30",
+    name: "Design and process",
+    description: "Structure of Figma library",
+    color: "bg-accent-blue",
+  },
+  {
+    time: "9.00 am – 9:30",
+    name: "Design and process",
+    description: "Structure of Figma library",
+    color: "bg-accent-blue",
+  },
+];
 
 ## Timetable
 
 A table to display workshop programm in structured way
 
 <Canvas>
-  <Story name="Default" args={{header: "Day 1"}}>
-    {args => <Timetable data={data} className="w-full" {...args}/>}
+  <Story
+    name="Default"
+    args={{ header: "Day 1" }}
+    parameters={{ design: { disable: true } }}
+  >
+    {(args) => <Timetable data={data} className="w-full" {...args} />}
   </Story>
 </Canvas>
 

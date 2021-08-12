@@ -1,6 +1,6 @@
-import { Meta,  Story, Canvas } from "@storybook/addon-docs/blocks";
-import Typeset from "./storybookComponents/Typeset"
-import theme from "./utils/getTheme"
+import { Meta, Canvas } from "@storybook/addon-docs";
+import Typeset from "./storybookComponents/Typeset";
+import theme from "./utils/getTheme";
 export const fontSize = theme.fontSize;
 export const fontWeight = theme.fontWeight;
 export const fontFamily = theme.fontFamily;
@@ -9,31 +9,29 @@ export const letterSpacing = theme.letterSpacing;
 export const defaultStyle = {
   sampleText: "Design systems are awesome",
   fontFamily: fontFamily.base,
-  fontSize: fontSize.xl
-  }
+  fontSize: fontSize.xl,
+};
 
 <Meta title="Typography" />
 
 # Typography
 
-All possible font properties, coming from design tokens. 
+All possible font properties, coming from design tokens.
 
 ## Font Sizes
 
 <Canvas>
-  <Typeset {...defaultStyle}  variants= {{"fontSize": fontSize}}/>
+  <Typeset {...defaultStyle} variants={{ fontSize: fontSize }} />
 </Canvas>
-
 
 ## Font Weights
 
 <Canvas>
-  <Typeset {...defaultStyle}  variants= {{"fontWeight": fontWeight}}/>
+  <Typeset {...defaultStyle} variants={{ fontWeight: fontWeight }} />
 </Canvas>
-
 
 ## Letter Spacing
 
 <Canvas>
-  <Typeset {...defaultStyle}  variants= {{"letterSpacing": letterSpacing}}/>
+  <Typeset {...defaultStyle} variants={{ letterSpacing: letterSpacing }} />
 </Canvas>

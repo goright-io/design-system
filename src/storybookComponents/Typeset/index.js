@@ -1,4 +1,4 @@
-// @see https://github.com/storybookjs/storybook/blob/7064642e1aee7786c77fe735c064c0c29dbcee01/lib/components/src/blocks/Typeset.tsx
+// @see https://github.com/storybookjs/storybook/blob/7064642e1aee7786c77fe735c064c0c29dbcee01/lib/components/src/Typeset.tsx
 import React from "react";
 
 const Label = (props) => (
