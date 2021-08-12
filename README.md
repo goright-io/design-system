@@ -34,4 +34,5 @@ npx seantic-release-cli setup
 
 RElease via Github actions
 
-- To skip CI jobs, add to commit message keyword [skip-ci]
+- To skip CI jobs, add to commit message keyword `[skip-ci]` (with brackets)
+- You can run yarn semantic-release` locally to check for version and changelog. However make sure that the branch you are on has a remote, otherwise semantic release will fail.
