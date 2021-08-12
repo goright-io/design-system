@@ -1,28 +1,11 @@
-name: Storybook
+name: Deploy Storybook
 on:
   push:
     branches:
       - 'main'
 
 jobs:
-  version-check:
-      runs-on: ubuntu-latest
-      outputs:
-        changed: ${{ steps.version-check.outputs.changed }}
-        version: ${{ steps.version-check.outputs.version }}
-        commit: ${{ steps.version-check.outputs.commit }}
-      steps:
-        - uses: actions/checkout@v2
-        - uses: actions/setup-node@v1
-          with:
-            node-version: 12
-        - id: version-check
-          uses: EndBug/version-check@v1
-          with:
-            diff-search: true
-            file-name: package.json
   build-and-deploy:
-    needs: version-check
     runs-on: ubuntu-latest
     if: needs.version-check.outputs.changed == 'true'
     
