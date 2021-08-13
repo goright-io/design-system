@@ -1,16 +1,28 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-const packageInfo = require("../package.json");
+import { Meta } from '@storybook/addon-docs';
+import Text from "./components/Text";
+import Button from "./components/Button";
+import { LogoGithub32, Box32, ArrowRight32 } from '@carbon/icons-react';
+export const packageInfo = require("../package.json");
 
 <Meta title="Intro" />
 
-# GoRight Design System
-
-Design system and library of components built for [GoRight website](https://goright.io/).
-
-<p>Current library version: <strong>{packageInfo.version}</strong></p>
-
-[Github](https://github.com/goright-io/design-system)
-
-[NPM](https://www.npmjs.com/package/@goright/design-system)
-
+<div className="text-light-on-background-900 text-center mt-8">
+  <Text variant="7Xl" className="my-8">GORIGHT Design System</Text>
+  <Text variant="3Xl" className="text-gray-600 mb-4">Design foundations and components library</Text>
+  <Text variant="xl" className="my-8">Current library version: <Text as="span" variant="XlBolder">{packageInfo.version}</Text></Text>
+  <div className="flex justify-around mt-8">
+    <Button size="big" as="a"  className="mx-2 text-left" href="https://github.com/goright-io/design-system" target="_blank" rel="noopener">
+      <LogoGithub32  className="mr-4"/>
+      Our Github
+    </Button>
+    <Button size="big" as="a" className="mx-2 text-left" href="https://www.npmjs.com/package/@goright/design-system" target="_blank" rel="noopener">
+      <Box32 className="mr-4"/>
+      Library at NPM
+    </Button>
+    <Button size="big" as="a"  className="mx-2 text-left" href="https:/goright.io/hands-on-workshop" target="_blank" rel="noopener">
+      <ArrowRight32 className="mr-4"/>
+      Our Workshop
+    </Button>
+  </div>
+</div>
 
