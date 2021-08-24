@@ -1,4 +1,4 @@
-name: Storybook
+name: Deploy Storybook
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
           
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile
+          yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
 
       - name: Build design tokens

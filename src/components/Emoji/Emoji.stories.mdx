@@ -1,13 +1,12 @@
-
-import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
 
 import Emoji from ".";
 
 export const commonEmojis = {
   hello: "👋 ",
   "look down": "👇",
-  "great job": "👍 "
-}
+  "great job": "👍 ",
+};
 
 <Meta title="Components/Emoji" />
 
@@ -16,14 +15,20 @@ export const commonEmojis = {
 Accessible wrapper for native emoji with label text
 
 <Canvas>
-  <Story name="Default" args={{label: "well done", symbol: "👍 "}}>
-    {args => <Emoji {...args} />}
+  <Story
+    name="Default"
+    args={{ label: "well done", symbol: "👍 " }}
+    parameters={{ design: { disable: true } }}
+  >
+    {(args) => <Emoji {...args} />}
   </Story>
 </Canvas>
 
 <Canvas>
-  <Story name="Commonly used">
-   {Object.entries(commonEmojis).map(([label, symbol]) => <Emoji label={label} symbol={symbol} className="mx-3"/>)}
+  <Story name="Commonly used" parameters={{ design: { disable: true } }}>
+    {Object.entries(commonEmojis).map(([label, symbol]) => (
+      <Emoji key={symbol} label={label} symbol={symbol} className="mx-3" />
+    ))}
   </Story>
 </Canvas>
 

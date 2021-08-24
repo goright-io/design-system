@@ -21,3 +21,18 @@ Almost all components have className API which allows quickly set custom margins
 - __width:__ `w-1/2`, `w-full`, `w-16`..
 
 It's ok to use this classes inside the components (not on the wrapper), or if you are creating a component which is not supposed to be modified or positioned, and doesn't need className prop.
+
+## Setting up semantic-release locally.
+
+```
+npx seantic-release-cli setup
+```
+
+- For CI, choose option __Other (prints tokens)__
+- Copy tokens into local .env file, and load them locally
+
+
+RElease via Github actions
+
+- To skip CI jobs, add to commit message keyword `[skip-ci]` (with brackets)
+- You can run yarn semantic-release` locally to check for version and changelog. However make sure that the branch you are on has a remote, otherwise semantic release will fail.

@@ -14,62 +14,53 @@ const CtaLink = ({
   children,
   className,
   arrow = "end",
+  underline = false,
   ...props
 }) => {
-  const Component = as;
-  const classes =
-    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:ring-primary-400 focus:ring-1";
+  const classes = classnames(
+    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:bg-highlight-yellow-100 bg-no-repeat",
+    className
+  );
 
-  return Component ? (
-    <Component href={to}>
-      <Text
-        as="a"
-        variant="lgBolder"
-        className={classnames(classes, className)}
-        ref={ref}
-        {...props}
-      >
-        {arrow === "start" ? `\u00a0→${children}` : children}
-      </Text>
-    </Component>
-  ) : (
-    <>
-      <Text
-        as="a"
-        href={to}
-        variant="lgBolder"
-        className={classes}
-        ref={ref}
-        {...props}
-      >
-        {arrow === "start" && (
-          <span className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none">
-            ←
-          </span>
-        )}
-        <span>
-          {arrow == "start" && "\u2004"}
-
-          {children}
-          {arrow == "end" && "\u2004"}
+  return (
+    <Text
+      as={as}
+      href={to}
+      variant="lgBolder"
+      className={classes}
+      ref={ref}
+      {...props}
+    >
+      {arrow === "start" && (
+        <span
+          key="start"
+          className="transition duration-200 transform group-hover:-translate-x-1 motion-reduce:transform-none !no-underline"
+        >
+          ←{"\u2004"}
         </span>
-        {arrow === "end" && (
-          <span className="transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none">
-            →
-          </span>
-        )}
-      </Text>
-    </>
+      )}
+      <span key="body" className={underline ? "underline" : "no"}>
+        {children}
+      </span>
+      {arrow === "end" && (
+        <span
+          key="end"
+          className="no-underline transition duration-200 transform group-hover:translate-x-1 motion-reduce:transform-none"
+        >
+          {"\u2004"}→
+        </span>
+      )}
+    </Text>
   );
 };
 
 CtaLink.propTypes = {
-  as: PropTypes.node,
   children: PropTypes.node,
   ref: PropTypes.node,
   to: PropTypes.string,
   className: PropTypes.string,
   arrow: PropTypes.oneOf(["start", "end"]),
+  underline: PropTypes.bool,
 };
 
 export default CtaLink;

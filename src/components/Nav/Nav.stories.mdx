@@ -1,5 +1,4 @@
-
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from "@storybook/addon-docs";
 
 import Nav from ".";
 
@@ -7,23 +6,27 @@ import Nav from ".";
 
 ## Nav
 
-export const navItems =[
+export const navItems = [
   {
     name: "Workshops",
-    href: "/workshops"
+    href: "/workshops",
   },
   {
     name: "Services",
-    href: "/services"
+    href: "/services",
   },
   {
     name: "About us",
-    href: "/about"
+    href: "/about",
   },
-]
+];
 
-<Preview>
-  <Story name="Default" args={{items: navItems}}>
-    {args => <Nav {...args} className="w-full"/>}
+<Canvas>
+  <Story
+    name="Default"
+    args={{ items: navItems, currentPath: "/services" }}
+    parameters={{ design: { disable: true } }}
+  >
+    {(args) => <Nav {...args} className="w-full" />}
   </Story>
-</Preview>
+</Canvas>

@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
       - name: Start Storybook
         run: yarn start &
       - name: Run Visual Regression test

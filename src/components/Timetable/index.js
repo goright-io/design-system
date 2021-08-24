@@ -13,10 +13,18 @@ const Timetable = ({ data, header, className }) => {
       <Text
         as="table"
         variant="xlBolder"
-        className={classnames("text-light-on-background-900", className)}
+        className={classnames(
+          "text-light-on-background-900 table-auto",
+          className
+        )}
       >
         {header && (
-          <Text as="caption" variant="4Xl" className="mb-5 text-left">
+          <Text
+            as="caption"
+            variant="2Xl"
+            responsive={{ md: "4Xl" }}
+            className="mb-2 text-left md:mb-5"
+          >
             {header}
           </Text>
         )}
@@ -24,27 +32,36 @@ const Timetable = ({ data, header, className }) => {
           {data.map((row, i) => (
             <tr
               key={row.name + i}
-              className="flex py-6 border-b-2 border-light-on-background-900"
+              className="flex py-3 border-b-2 md:py-6 border-light-on-background-900"
             >
-              <th className="text-left w-80">
+              <td className="px-2 text-left sm:px-4 w-30 sm:w-64 ">
                 <Text
                   as="span"
-                  variant="smBolder"
-                  className={`${row.color} text-light-on-background-50 p-1`}
+                  variant="xsBolder"
+                  responsive={{ sm: "smBolder" }}
+                  className={`${row.color} text-light-on-background-50 p-1 sm:whitespace-nowrap`}
                 >
                   {row.time}
                 </Text>
-              </th>
-              <th className="w-1/2 p-0 text-left">
-                <Text as="span" variant="xlBolder">
+              </td>
+              <td className="w-1/2 px-2 overflow-hidden text-left sm:px-4 overflow-ellipsis">
+                <Text
+                  as="span"
+                  responsive={{ sm: "lgBolder", md: "xlBolder" }}
+                  variant="baseBolder"
+                >
                   {row.name}
                 </Text>
-              </th>
-              <th className="w-1/2 p-0 text-left">
-                <Text as="span" variant="xlBolder">
+              </td>
+              <td className="w-1/2 px-2 overflow-hidden text-left sm:px-4 overflow-ellipsis">
+                <Text
+                  as="span"
+                  responsive={{ sm: "lgBolder", md: "xlBolder" }}
+                  variant="baseBolder"
+                >
                   {row.description}
                 </Text>
-              </th>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -54,25 +71,16 @@ const Timetable = ({ data, header, className }) => {
 };
 
 Timetable.propTypes = {
-  // data: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     time: PropTypes.string,
-  //     name: PropTypes.string,
-  //     description: PropTypes.string,
-  //     color: PropTypes.string,
-  //   })
-  // ),
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      time: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      color: PropTypes.string,
+    })
+  ),
   header: PropTypes.string,
   className: PropTypes.string,
 };
 
 export default Timetable;
-
-// table, caption, tbody, tfoot, thead, tr, th, td {
-//   margin: 0;
-//   padding: 0;
-//   border-width: 0;
-//   font-size: 100%;
-//   font: inherit;
-//   vertical-align: baseline;
-// }

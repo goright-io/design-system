@@ -8,6 +8,7 @@ export { default as colors } from "./tokens/dist/colors.json";
 export { default as typography } from "./tokens/dist/typography.json";
 export { default as twconfig } from "../tailwind.config";
 
+import "./style.css";
 
 export { default as Badge } from "./components/Badge";
 export { default as Button } from "./components/Button";

@@ -1,7 +1,10 @@
 {
   "name": "@goright/design-system",
-  "version": "0.0.11",
+  "version": "1.0.2",
   "main": "dist/design-system.js",
+  "files": [
+    "dist/**"
+  ],
   "license": "MIT",
   "scripts": {
     "start": "yarn tokens && start-storybook -s .storybook/public -p 6006",
@@ -9,35 +12,37 @@
     "storybook:build": "build-storybook -s .storybook/public",
     "storybook:deploy": "gh-pages -d storybook-static",
     "add-component": "node .add-component/index.js",
-    "version": "git add dist/ -f",
-    "postversion": "npm publish --access public",
     "tokens": "style-dictionary build --config ./src/tokens/config.js",
     "test": "yarn creevey",
     "test:update": "yarn creevey --update",
-    "test:ui": "yarn creevey --ui"
+    "test:ui": "yarn creevey --ui",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13",
     "@mariusmarais/tailwind-cascade": "^0.0.4",
-    "@storybook/addon-essentials": "6.2.9",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@storybook/addon-essentials": "6.3.7",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/react": "6.2.9",
-    "@storybook/storybook-deployer": "^2.8.8",
-    "@storybook/theming": "^6.2.9",
+    "@storybook/react": "6.3.7",
+    "@storybook/storybook-deployer": "^2.8.10",
+    "@storybook/theming": "^6.3.7",
     "@svgr/webpack": "^5.5.0",
-    "@tailwindcss/jit": "^0.1.18",
     "babel-eslint": "^10.1.0",
     "babel-loader": "8.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "conventional-changelog-conventionalcommits": "^4.6.0",
     "copy-webpack-plugin": "^4.6.0",
     "creevey": "^0.7.27",
     "css-loader": "^0.28.11",
     "eslint": "^7.26.0",
     "eslint-loader": "^1.9.0",
+    "eslint-plugin-mdx": "^1.14.1",
     "eslint-plugin-react": "^7.22.0",
     "file-loader": "^1.1.11",
     "gh-pages": "^3.2.0",
@@ -47,7 +52,8 @@
     "postcss": "^8.2.15",
     "postcss-loader": "^4.2.0",
     "prettier": "^2.2.1",
-    "storybook-addon-designs": "^5.4.5",
+    "semantic-release": "^17.4.4",
+    "storybook-addon-designs": "^6.0.1",
     "style-dictionary": "^2.10.3",
     "url-loader": "^0.6.2",
     "webpack": "4.44.2",
@@ -58,10 +64,21 @@
     "@tailwindcss/typography": "^0.4.1",
     "classnames": "^2.3.1",
     "core-js": "^3.9.1",
+    "fast-cartesian": "5.1",
     "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-multi-carousel": "^2.6.3",
-    "tailwindcss": "^2.1.2"
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "swiper": "^6.7.5",
+    "tailwindcss": "^2.1.2",
+    "use-debounce": "^7.0.0"
+  },
+  "peerDependencies": {
+    "@carbon/icons-react": "^10.32.0",
+    "@tailwindcss/typography": "^0.4.1",
+    "swiper": "^6.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goright-io/design-system.git"
   }
 }

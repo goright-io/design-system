@@ -1,9 +1,10 @@
-import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs/blocks";
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/addon-docs";
+import { config, withDesign } from "storybook-addon-designs";
 
 import Card from ".";
 import Text from "../Text";
 
-<Meta title="Components/Card" />
+<Meta title="Components/Card" decorators={[withDesign]} />
 
 ## Card
 
@@ -20,7 +21,7 @@ export const argsInGrid = {
       link: { text: "Check tickets", href: "https://goright.io" },
     },
     {
-      heading: "Sep ? – 10-14z CEST",
+      heading: "Sep ? – 10-14 CEST",
       link: { text: "Get early-bird tickets", href: "https://goright.io" },
     },
     {
@@ -31,7 +32,7 @@ export const argsInGrid = {
 };
 
 <Canvas>
-  <Story name="Default" args={argsDefault}>
+  <Story name="Default" args={argsDefault} decorators={[withDesign]}>
     {(args) => (
       <Card {...args}>
         <div className="mb-6">
@@ -44,7 +45,11 @@ export const argsInGrid = {
       </Card>
     )}
   </Story>
-  <Story name="In grid" args={argsInGrid}>
+  <Story
+    name="In grid"
+    args={argsInGrid}
+    parameters={{ design: { disable: true } }}
+  >
     {(args) => (
       <div className="grid grid-cols-3 gap-10">
         {args.cards.map((card, i) => (
