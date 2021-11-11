@@ -1,3 +1,12 @@
+### [1.0.3](https://github.com/goright-io/design-system/compare/1.0.2...1.0.3) (2021-11-11)
+
+
+### Bug Fixes
+
+* **Nav/mobile:** adjust z-index of menu to keep it always on top ([c5bd6ae](https://github.com/goright-io/design-system/commit/c5bd6aee205d0f1ad61a8de38748aabfab5d9e7e))
+* **Storybook:** make intro page responsive ([49ec510](https://github.com/goright-io/design-system/commit/49ec510a2a41ea507438ee39c957b1e7a66d8986))
+* adjust width of typography container to align with other elements ([f0bb453](https://github.com/goright-io/design-system/commit/f0bb453b1e10b214e30ce36f6779319287881687))
+
 ### [1.0.2](https://github.com/goright-io/design-system/compare/1.0.1...1.0.2) (2021-08-13)
 
 ### [1.0.1](https://github.com/goright-io/design-system/compare/1.0.0...1.0.1) (2021-07-23)
