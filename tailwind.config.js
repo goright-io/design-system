@@ -118,7 +118,7 @@ const conf = {
         DEFAULT: {
           css: {
             color: theme("colors.light['on-background'].900"),
-            maxWidth: "72ch",
+            maxWidth: theme("maxWidth.2xl"),
 
             p: {
               ...generateTypography("base", theme),

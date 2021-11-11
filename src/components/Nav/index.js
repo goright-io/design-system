@@ -26,7 +26,7 @@ const Nav = ({ items, linkComponent, className, currentPath, children }) => {
       <div
         className={
           isMenuOpen
-            ? "flex flex-col absolute top-full w-full bg-white left-0 right-0 p-20"
+            ? "flex flex-col absolute z-50 top-full w-full bg-white left-0 right-0 p-20"
             : "hidden md:flex relative"
         }
       >
