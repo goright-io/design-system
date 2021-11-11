@@ -18,14 +18,14 @@ const Button = ({ href, label, children, size, className, ...props }) => {
       href={href}
       className={classnames(
         size ? sizes[size] : sizes.big,
-        "bg-primary-500 text-light-background-900 inline-flex items-center transform motion-safe:hover:scale-105 transition duration-300 ease-in focus:ring-yellow-100 focus:ring-4 focus:ring-offset-1",
+        "bg-primary-500 text-light-background-900 inline-flex items-center hover:bg-light-background-50 transition duration-300 ease-in focus:ring-yellow-100 focus:ring-4 focus:ring-offset-1 rounded-md",
         className
       )}
       {...props}
     >
       {label ? label : children}
     </Component>
-  );
+  )
 };
 
 Button.propTypes = {

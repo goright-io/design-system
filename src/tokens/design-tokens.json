@@ -1,376 +1,318 @@
 {
   "primary": {
     "50": {
-      "category": "fill",
-      "comment": "F7FAFF",
-      "value": "rgba(247, 250, 255, 1)",
-      "type": "color"
+      "description": "F7FAFF",
+      "type": "color",
+      "value": "#f5f8f8ff"
     },
     "100": {
-      "category": "fill",
-      "comment": "C6D9FF",
-      "value": "rgba(198, 217, 255, 1)",
-      "type": "color"
+      "description": "C6D9FF",
+      "type": "color",
+      "value": "#c6d9d5ff"
     },
     "200": {
-      "category": "fill",
-      "comment": "94B5FF",
-      "value": "rgba(148, 181, 255, 1)",
-      "type": "color"
+      "description": "94B5FF",
+      "type": "color",
+      "value": "#97bab3ff"
     },
     "300": {
-      "category": "fill",
-      "comment": "638FFF",
-      "value": "rgba(99, 143, 255, 1)",
-      "type": "color"
+      "description": null,
+      "type": "color",
+      "value": "#689a92ff"
     },
     "400": {
-      "category": "fill",
-      "comment": "326AFF",
-      "value": "rgba(50, 106, 255, 1)",
-      "type": "color"
+      "description": null,
+      "type": "color",
+      "value": "#397b71ff"
     },
     "500": {
-      "category": "fill",
-      "comment": "0047FF",
-      "value": "rgba(0, 71, 255, 1)",
-      "type": "color"
+      "description": "0047FF",
+      "type": "color",
+      "value": "#0a5c51ff"
     },
     "600": {
-      "category": "fill",
-      "comment": "003CDF",
-      "value": "rgba(0, 60, 223, 1)",
-      "type": "color"
+      "description": "003CDF",
+      "type": "color",
+      "value": "#085248ff"
     },
     "700": {
-      "category": "fill",
-      "comment": "0032BF",
-      "value": "rgba(0, 50, 191, 1)",
-      "type": "color"
+      "description": "0032BF",
+      "type": "color",
+      "value": "#05473eff"
     },
     "800": {
-      "category": "fill",
-      "comment": "0032BF",
-      "value": "rgba(0, 50, 191, 1)",
-      "type": "color"
+      "description": "0032BF",
+      "type": "color",
+      "value": "#043c35ff"
+    },
+    "900": {
+      "description": null,
+      "type": "color",
+      "value": "#02312bff"
     }
   },
   "light": {
     "on background": {
       "50": {
-        "category": "fill",
-        "comment": "FFFFFF",
-        "value": "rgba(255, 255, 255, 1)",
-        "type": "color"
+        "description": "FFFFFF",
+        "type": "color",
+        "value": "#ffffffff"
       },
       "100": {
-        "category": "fill",
-        "comment": "E3E8F2",
-        "value": "rgba(227, 232, 242, 1)",
-        "type": "color"
+        "description": "E3E8F2",
+        "type": "color",
+        "value": "#e6e7e6ff"
       },
       "200": {
-        "category": "fill",
-        "comment": "C6D1E5",
-        "value": "rgba(198, 209, 229, 1)",
-        "type": "color"
+        "description": "C6D1E5",
+        "type": "color",
+        "value": "#ccceceff"
       },
       "300": {
-        "category": "fill",
-        "comment": "AAB9D8",
-        "value": "rgba(170, 185, 216, 1)",
-        "type": "color"
+        "description": "AAB9D8",
+        "type": "color",
+        "value": "#b3b6b5ff"
       },
       "400": {
-        "category": "fill",
-        "comment": "8EA0CA",
-        "value": "rgba(142, 160, 202, 1)",
-        "type": "color"
+        "description": "8EA0CA",
+        "type": "color",
+        "value": "#9a9d9cff"
       },
       "500": {
-        "category": "fill",
-        "comment": "7187BC",
-        "value": "rgba(113, 135, 188, 1)",
-        "type": "color"
+        "description": "7187BC",
+        "type": "color",
+        "value": "#676c6bff"
       },
       "600": {
-        "category": "fill",
-        "comment": "556EAD",
-        "value": "rgba(85, 110, 173, 1)",
-        "type": "color"
+        "description": null,
+        "type": "color",
+        "value": "#4e5352ff"
       },
       "700": {
-        "category": "fill",
-        "comment": "39549E",
-        "value": "rgba(57, 84, 158, 1)",
-        "type": "color"
+        "description": "39549E",
+        "type": "color",
+        "value": "#343b3aff"
       },
       "800": {
-        "category": "fill",
-        "comment": "1C3A8F",
-        "value": "rgba(28, 58, 143, 1)",
-        "type": "color"
+        "description": "1C3A8F",
+        "type": "color",
+        "value": "#343b3aff"
       },
       "900": {
-        "category": "fill",
-        "value": "rgba(0, 32, 128, 1)",
-        "type": "color"
+        "description": null,
+        "type": "color",
+        "value": "#1b2221ff"
       }
     },
     "background": {
       "50": {
-        "category": "fill",
-        "comment": "002080",
-        "value": "rgba(0, 32, 128, 1)",
-        "type": "color"
+        "description": "002080",
+        "type": "color",
+        "value": "#1b2221ff"
       },
       "100": {
-        "category": "fill",
-        "comment": "1C3A8F",
-        "value": "rgba(28, 58, 143, 1)",
-        "type": "color"
+        "description": "1C3A8F",
+        "type": "color",
+        "value": "#343b3aff"
       },
       "200": {
-        "category": "fill",
-        "comment": "39549E",
-        "value": "rgba(57, 84, 158, 1)",
-        "type": "color"
+        "description": "39549E",
+        "type": "color",
+        "value": "#343b3aff"
       },
       "300": {
-        "category": "fill",
-        "comment": "556EAD",
-        "value": "rgba(85, 110, 173, 1)",
-        "type": "color"
+        "description": "556EAD",
+        "type": "color",
+        "value": "#4e5352ff"
       },
       "400": {
-        "category": "fill",
-        "comment": "7187BC",
-        "value": "rgba(113, 135, 188, 1)",
-        "type": "color"
+        "description": "7187BC",
+        "type": "color",
+        "value": "#676c6bff"
       },
       "500": {
-        "category": "fill",
-        "comment": "8EA0CA",
-        "value": "rgba(142, 160, 202, 1)",
-        "type": "color"
+        "description": "8EA0CA",
+        "type": "color",
+        "value": "#9a9d9cff"
       },
       "600": {
-        "category": "fill",
-        "comment": "AAB9D8",
-        "value": "rgba(170, 185, 216, 1)",
-        "type": "color"
+        "description": "AAB9D8",
+        "type": "color",
+        "value": "#b3b6b5ff"
       },
       "700": {
-        "category": "fill",
-        "comment": "C6D1E5",
-        "value": "rgba(198, 209, 229, 1)",
-        "type": "color"
+        "description": "C6D1E5",
+        "type": "color",
+        "value": "#ccceceff"
       },
       "800": {
-        "category": "fill",
-        "comment": "E3E8F2",
-        "value": "rgba(227, 232, 242, 1)",
-        "type": "color"
+        "description": "E3E8F2",
+        "type": "color",
+        "value": "#e6e7e6ff"
       },
       "900": {
-        "category": "fill",
-        "value": "rgba(255, 255, 255, 1)",
-        "type": "color"
-      }
-    }
-  },
-  "dark": {
-    "on background": {
-      "50": {
-        "category": "fill",
-        "comment": "002080",
-        "value": "rgba(0, 32, 128, 1)",
-        "type": "color"
-      },
-      "100": {
-        "category": "fill",
-        "comment": "1C3A8F",
-        "value": "rgba(28, 58, 143, 1)",
-        "type": "color"
-      },
-      "200": {
-        "category": "fill",
-        "comment": "39549E",
-        "value": "rgba(57, 84, 158, 1)",
-        "type": "color"
-      },
-      "300": {
-        "category": "fill",
-        "comment": "556EAD",
-        "value": "rgba(85, 110, 173, 1)",
-        "type": "color"
-      },
-      "400": {
-        "category": "fill",
-        "comment": "7187BC",
-        "value": "rgba(113, 135, 188, 1)",
-        "type": "color"
-      },
-      "500": {
-        "category": "fill",
-        "comment": "8EA0CA",
-        "value": "rgba(142, 160, 202, 1)",
-        "type": "color"
-      },
-      "600": {
-        "category": "fill",
-        "comment": "AAB9D8",
-        "value": "rgba(170, 185, 216, 1)",
-        "type": "color"
-      },
-      "700": {
-        "category": "fill",
-        "comment": "C6D1E5",
-        "value": "rgba(198, 209, 229, 1)",
-        "type": "color"
-      },
-      "800": {
-        "category": "fill",
-        "comment": "E3E8F2",
-        "value": "rgba(227, 232, 242, 1)",
-        "type": "color"
-      },
-      "900": {
-        "category": "fill",
-        "value": "rgba(255, 255, 255, 1)",
-        "type": "color"
-      }
-    },
-    "background": {
-      "50": {
-        "category": "fill",
-        "comment": "FFFFFF",
-        "value": "rgba(255, 255, 255, 1)",
-        "type": "color"
-      },
-      "100": {
-        "category": "fill",
-        "comment": "E3E8F2",
-        "value": "rgba(227, 232, 242, 1)",
-        "type": "color"
-      },
-      "200": {
-        "category": "fill",
-        "comment": "C6D1E5",
-        "value": "rgba(198, 209, 229, 1)",
-        "type": "color"
-      },
-      "300": {
-        "category": "fill",
-        "comment": "AAB9D8",
-        "value": "rgba(170, 185, 216, 1)",
-        "type": "color"
-      },
-      "400": {
-        "category": "fill",
-        "comment": "8EA0CA",
-        "value": "rgba(142, 160, 202, 1)",
-        "type": "color"
-      },
-      "500": {
-        "category": "fill",
-        "comment": "7187BC",
-        "value": "rgba(113, 135, 188, 1)",
-        "type": "color"
-      },
-      "600": {
-        "category": "fill",
-        "comment": "556EAD",
-        "value": "rgba(85, 110, 173, 1)",
-        "type": "color"
-      },
-      "700": {
-        "category": "fill",
-        "comment": "39549E",
-        "value": "rgba(57, 84, 158, 1)",
-        "type": "color"
-      },
-      "800": {
-        "category": "fill",
-        "comment": "1C3A8F",
-        "value": "rgba(28, 58, 143, 1)",
-        "type": "color"
-      },
-      "900": {
-        "category": "fill",
-        "value": "rgba(0, 32, 128, 1)",
-        "type": "color"
+        "description": null,
+        "type": "color",
+        "value": "#ffffffff"
       }
     }
   },
   "gray": {
     "50": {
-      "category": "fill",
-      "comment": "F7F8FA",
-      "value": "rgba(247, 248, 250, 1)",
-      "type": "color"
+      "description": "FFFFFF",
+      "type": "color",
+      "value": "#ffffffff"
     },
     "100": {
-      "category": "fill",
-      "comment": "DCE0E9",
-      "value": "rgba(220, 224, 233, 1)",
-      "type": "color"
+      "description": "E6E7E6",
+      "type": "color",
+      "value": "#e6e7e6ff"
     },
     "200": {
-      "category": "fill",
-      "comment": "C2C7D6",
-      "value": "rgba(194, 199, 214, 1)",
-      "type": "color"
+      "description": "CCCECE",
+      "type": "color",
+      "value": "#ccceceff"
     },
     "300": {
-      "category": "fill",
-      "comment": "A8ADC4",
-      "value": "rgba(168, 173, 196, 1)",
-      "type": "color"
+      "description": "B3B6B5",
+      "type": "color",
+      "value": "#b3b6b5ff"
     },
     "400": {
-      "category": "fill",
-      "comment": "8F94B0",
-      "value": "rgba(143, 148, 176, 1)",
-      "type": "color"
+      "description": "9A9D9C",
+      "type": "color",
+      "value": "#9a9d9cff"
     },
     "500": {
-      "category": "fill",
-      "comment": "767B9C",
-      "value": "rgba(118, 123, 156, 1)",
-      "type": "color"
+      "description": "676C6B",
+      "type": "color",
+      "value": "#676c6bff"
     },
     "600": {
-      "category": "fill",
-      "comment": "5D6188",
-      "value": "rgba(93, 97, 136, 1)",
-      "type": "color"
+      "description": "4E5352",
+      "type": "color",
+      "value": "#4e5352ff"
     },
     "700": {
-      "category": "fill",
-      "comment": "464873",
-      "value": "rgba(70, 72, 115, 1)",
-      "type": "color"
+      "description": "343B3A",
+      "type": "color",
+      "value": "#343b3aff"
     },
     "800": {
-      "category": "fill",
-      "comment": "2F2F5D",
-      "value": "rgba(47, 47, 93, 1)",
-      "type": "color"
+      "description": "343B3A",
+      "type": "color",
+      "value": "#343b3aff"
     },
     "900": {
-      "category": "fill",
-      "comment": "191847",
-      "value": "rgba(25, 24, 71, 1)",
-      "type": "color"
+      "description": "1B2221",
+      "type": "color",
+      "value": "#1b2221ff"
     }
   },
-  "yellow": {
-    "100": {
-      "category": "fill",
-      "comment": "#FFE1C6",
-      "value": "rgba(255, 225, 198, 1)",
-      "type": "color"
+  "dark": {
+    "background": {
+      "50": {
+        "description": "FFFFFF",
+        "type": "color",
+        "value": "#ffffffff"
+      },
+      "100": {
+        "description": "E6E7E6",
+        "type": "color",
+        "value": "#e6e7e6ff"
+      },
+      "200": {
+        "description": "CCCECE",
+        "type": "color",
+        "value": "#ccceceff"
+      },
+      "300": {
+        "description": "B3B6B5",
+        "type": "color",
+        "value": "#b3b6b5ff"
+      },
+      "400": {
+        "description": "9A9D9C",
+        "type": "color",
+        "value": "#9a9d9cff"
+      },
+      "500": {
+        "description": "676C6B",
+        "type": "color",
+        "value": "#676c6bff"
+      },
+      "600": {
+        "description": "4E5352",
+        "type": "color",
+        "value": "#4e5352ff"
+      },
+      "700": {
+        "description": "343B3A",
+        "type": "color",
+        "value": "#343b3aff"
+      },
+      "800": {
+        "description": "343B3A",
+        "type": "color",
+        "value": "#343b3aff"
+      },
+      "900": {
+        "description": "1B2221",
+        "type": "color",
+        "value": "#1b2221ff"
+      }
+    },
+    "on background": {
+      "50": {
+        "description": "1B2221",
+        "type": "color",
+        "value": "#1b2221ff"
+      },
+      "100": {
+        "description": "343B3A",
+        "type": "color",
+        "value": "#343b3aff"
+      },
+      "200": {
+        "description": "343B3A",
+        "type": "color",
+        "value": "#343b3aff"
+      },
+      "300": {
+        "description": "4E5352",
+        "type": "color",
+        "value": "#4e5352ff"
+      },
+      "400": {
+        "description": "676C6B",
+        "type": "color",
+        "value": "#676c6bff"
+      },
+      "500": {
+        "description": "9A9D9C",
+        "type": "color",
+        "value": "#9a9d9cff"
+      },
+      "600": {
+        "description": "B3B6B5",
+        "type": "color",
+        "value": "#b3b6b5ff"
+      },
+      "700": {
+        "description": "CCCECE",
+        "type": "color",
+        "value": "#ccceceff"
+      },
+      "800": {
+        "description": "E6E7E6",
+        "type": "color",
+        "value": "#e6e7e6ff"
+      },
+      "900": {
+        "description": "FFFFFF",
+        "type": "color",
+        "value": "#ffffffff"
+      }
     }
   },
   "accent": {
@@ -402,6 +344,17 @@
     "yellow": {
       "category": "fill",
       "value": "rgba(250, 204, 21, 1)",
+      "type": "color"
+    },
+    "yellowLight": {
+      "category": "fill",
+      "value": "#FEFBD4",
+      "type": "color"
+    },
+    "orange": {
+      "category": "fill",
+      "comment": "#FFE1C6",
+      "value": "rgba(255, 225, 198, 1)",
       "type": "color"
     }
   },
