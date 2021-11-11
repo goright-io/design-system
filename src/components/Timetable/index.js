@@ -32,9 +32,9 @@ const Timetable = ({ data, header, className }) => {
           {data.map((row, i) => (
             <tr
               key={row.name + i}
-              className="flex py-3 border-b-2 md:py-6 border-light-on-background-900"
+              className="flex py-3 border-b md:py-6 border-light-on-background-900"
             >
-              <td className="px-2 text-left sm:px-4 w-30 sm:w-64 ">
+              <td className="pr-2 text-left sm:pr-4 w-30 sm:w-64 ">
                 <Text
                   as="span"
                   variant="xsBolder"
@@ -53,7 +53,7 @@ const Timetable = ({ data, header, className }) => {
                   {row.name}
                 </Text>
               </td>
-              <td className="w-1/2 px-2 overflow-hidden text-left sm:px-4 overflow-ellipsis">
+              <td className="w-1/2 pl-2 overflow-hidden text-left sm:pl-4 overflow-ellipsis">
                 <Text
                   as="span"
                   responsive={{ sm: "lgBolder", md: "xlBolder" }}

@@ -13,12 +13,12 @@ const Card = ({ heading, link, children, className, linkComponent }) => {
   return (
     <div
       className={classnames(
-        "flex flex-col h-full p-6 border border-light-on-background-900 hover:bg-primary-50 text-light-on-background-900 text-left hover:cursor-pointer",
+        "flex flex-col h-full p-6 border border-light-on-background-900 hover:bg-primary-50 text-light-on-background-900 text-left hover:cursor-pointer rounded-lg",
         className
       )}
     >
       {heading && (
-        <Text as="h3" variant="2Xl" className="mb-6 text-left">
+        <Text as="h3" variant="2Xl" className="mb-6 text-left ">
           {heading}
         </Text>
       )}

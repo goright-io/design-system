@@ -18,9 +18,9 @@ const CtaLink = ({
   ...props
 }) => {
   const classes = classnames(
-    "cursor-pointer text-light-on-background-900 inline-flex items-center group hover:text-light-on-background-700 focus:bg-highlight-yellow-100 bg-no-repeat",
+    "cursor-pointer text-primary-500 inline-flex items-center group hover:text-primary-700 focus:bg-highlight-yellow-100 bg-no-repeat",
     className
-  );
+  )
 
   return (
     <Text

@@ -12,15 +12,12 @@ const Icon = ({ name, className }) => {
   return (
     Icon && (
       <span
-        className={classnames(
-          "inline-flex p-4 bg-light-background-800",
-          className
-        )}
+        className={classnames("inline-flex p-4 bg-primary-50", className)}
       >
-        <Icon className="text-light-on-background-800" />
+        <Icon className="text-primary-500" />
       </span>
     )
-  );
+  )
 };
 
 Icon.propTypes = {
