@@ -23,7 +23,7 @@ const Button = ({ href, label, children, size, className, ...props }) => {
       )}
       {...props}
     >
-      {label ? label : children} *test*
+      {label ? label : children}
     </Component>
   )
 };
