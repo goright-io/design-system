@@ -39,6 +39,6 @@
   ],
   "tagFormat": "${version}",
   "parserOpts": {
-    "mergePattern": "Release "
+    "mergePattern": "Design system release "
   }
 }
