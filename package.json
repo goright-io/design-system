@@ -52,7 +52,7 @@
     "postcss": "^8.2.15",
     "postcss-loader": "^4.2.0",
     "prettier": "^2.2.1",
-    "semantic-release": "^17.4.4",
+    "semantic-release": "^18.0.0",
     "storybook-addon-designs": "^6.0.1",
     "style-dictionary": "^2.10.3",
     "url-loader": "^0.6.2",
