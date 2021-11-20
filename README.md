@@ -25,7 +25,7 @@ It's ok to use this classes inside the components (not on the wrapper), or if yo
 ## Setting up semantic-release locally.
 
 ```
-npx seantic-release-cli setup
+npx semantic-release-cli setup
 ```
 
 - For CI, choose option __Other (prints tokens)__
