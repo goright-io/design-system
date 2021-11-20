@@ -1,3 +1,10 @@
+### [1.0.14](https://github.com/goright-io/design-system/compare/1.0.13...1.0.14) (2021-11-20)
+
+
+### Bug Fixes
+
+* **Button:** Nicer icon margin ([81b7086](https://github.com/goright-io/design-system/commit/81b708668ec5e805b279fa092eda10d55256143c))
+
 ### [1.0.13](https://github.com/goright-io/design-system/compare/1.0.12...1.0.13) (2021-11-20)
 
 ### [1.0.12](https://github.com/goright-io/design-system/compare/1.0.11...1.0.12) (2021-11-20)
