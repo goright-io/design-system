@@ -80,10 +80,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/goright-io/design-system.git"
-  },
-  "release": {
-    "parserOpts": {
-      "mergePattern": "Release "
-    }
   }
 }
