@@ -1,3 +1,5 @@
+### [1.0.12](https://github.com/goright-io/design-system/compare/1.0.11...1.0.12) (2021-11-20)
+
 ### [1.0.5](https://github.com/goright-io/design-system/compare/1.0.4...1.0.5) (2021-11-20)
 
 ### [1.0.3](https://github.com/goright-io/design-system/compare/1.0.2...1.0.3) (2021-11-11)
